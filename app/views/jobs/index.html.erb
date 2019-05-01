@@ -1,15 +1,13 @@
 <h1>Job Listing</h1>
 <%= link_to 'Add new job!', new_job_path %>
 
-<ul>
-    <% @jobs.each_with_index do |job, index| %>
-        <li>
-            <%= job.title %> - <%= job.description %> 
-            <%= link_to "Show", show_job_path(job.id) %>
-            <%= link_to 'Edit Job', edit_job_path(job.id) %>
-            <%= link_to 'Destroy', jobs_path(job.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-        </li>
-    <% end %>
-</ul>
+
+
+<% @jobs.each do |job| %>
+    <li>
+      <td><%= job.title %></td>
+      <td><%= job.description %></td>
+      <td><%= link_to 'Show', show_job_path(job) %></td>
+      <td><%= link_to 'Edit', edit_job_path(job) %></td>
+    </li>
+  <% end %>
