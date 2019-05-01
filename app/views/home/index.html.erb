@@ -3,27 +3,27 @@
 <body>
 
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle"
+  <button class="btn btn-secondary "
           type="button" id="dropdownMenu1" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
     Customer
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <a class="btn  my-2 my-sm-0" ><%= link_to 'customer login', new_customer_session_path %></a>
-    <a class="btn  my-2 my-sm-0" ><%= link_to 'customer Sign Up', new_customer_registration_path %></a> 
+    <a class="btn  my-2 my-sm-0" ><%= link_to 'login', new_customer_session_path %></a>
+    <a class="btn  my-2 my-sm-0" ><%= link_to 'Sign Up', new_customer_registration_path %></a> 
   </div>
 
   
 </div>
   <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle"
+  <button class="btn btn-secondary "
           type="button" id="dropdownMenu1" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
     Worker
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <a class="btn  my-2 my-sm-0" ><%= link_to 'Worker login', new_worker_session_path %></a>
-    <a class="btn  my-2 my-sm-0" ><%= link_to 'Worker Sign Up', new_worker_registration_path %></a>
+    <a class="btn  my-2 my-sm-0" ><%= link_to 'login', new_worker_session_path %></a>
+    <a class="btn  my-2 my-sm-0" ><%= link_to 'Sign Up', new_worker_registration_path %></a>
   </div>
 </div>
 </body>
