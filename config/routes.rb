@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :customers
   resources :workers
 
+  get '/jobs', to: 'jobs#index', as: 'jobs'
+  post '/jobs', to: 'jobs#create'
+  get '/jobs/new', to: 'jobs#new', as: 'new_job'
+
   root 'home#index'
 end
