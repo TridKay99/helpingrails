@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get '/jobs', to: 'jobs#index', as: 'jobs'
   post '/jobs', to: 'jobs#create'
   get '/jobs/new', to: 'jobs#new', as: 'new_job'
+  get '/jobs/:id', to: 'jobs#show', as: 'show_job'
+  put '/jobs/:id', to: 'jobs#edit', as: 'edit_job'
+  get '/jobs/:id/edit', to: 'jobs#edit', as: 'update_edit_job'
+  patch '/jobs/:id', to: 'jobs#update'
+
+  delete '/jobs/:id', to: 'jobs#destroy'
+
 
   root 'home#index'
 end
