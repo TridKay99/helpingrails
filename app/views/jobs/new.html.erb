@@ -1,7 +1,8 @@
 <h1>Add new job</h1>
 
-<form action="<%= jobs_path %>" method="GET">
+<form action="<%= jobs_path %>" method="POST">
   <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
   <label>Title</label>
     <input type="text" name="title" />
 
