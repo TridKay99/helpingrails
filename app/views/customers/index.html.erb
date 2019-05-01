@@ -1,0 +1,20 @@
+<div class="index-page">
+  <div class="customershelf">
+    <% @customers.each do |customer| %>
+      <div class="customer-card bg-light">
+        <div class="customer-description">
+          
+          <h4> Customer Id: <%=customer.id %></h4>
+          <p> email: <%= customer.email %></p>
+          <p> created at: <%= customer.created_at %></p>
+        </div>
+        <div class="index-page-nav-links">
+            <button><%= link_to "show", customer %></button>
+          <%# <% if can? :delete, customer %> 
+            <button><%= link_to "delete", customer_path(customer), method: :delete %></button>
+          <%# <% end %> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

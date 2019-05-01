@@ -1,0 +1,13 @@
+<div class="customer-profile">
+  <h2><%= @customer.id %></h2>
+  <hr>
+  
+  <p>Email: <%= @customer.email %></p>
+  
+  <%# <%= render "layouts/shared/stripe_form" %>
+  
+    <%= link_to "edit", edit_customer_path(@customer) %> 
+    <%= link_to "delete",customer_path(@customer), method: :delete %>
+  
+  <hr>
+</div>
