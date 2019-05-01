@@ -10,6 +10,19 @@
   </head>
 
   <body>
+
+    <nav id="navbar-example2" class="navbar navbar-dark bg-dark">
+      <h3 class="navbar-brand">Helping Hand</h3>
+      <ul class="nav justify-content-start">
+        <li class="nav-item">
+          <button class="btn my-2 my-sm-0" ><%=link_to "Job List"%></button>
+        </li>
+        <li class="nav-item">
+          <button class="btn my-2 my-sm-0" ><%=link_to "Home"%></button>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
