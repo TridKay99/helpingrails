@@ -9,19 +9,40 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body>  
 
-    <nav id="navbar-example2" class="navbar navbar-dark bg-dark">
-      <h3 class="navbar-brand">Helping Hand</h3>
-      <ul class="nav justify-content-start">
-        <li class="nav-item">
-          <button class="btn my-2 my-sm-0" ><%=link_to "Job List"%></button>
-        </li>
-        <li class="nav-item">
-          <button class="btn my-2 my-sm-0" ><%=link_to "Home"%></button>
-        </li>
-      </ul>
-    </nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item"><button class="btn my-2 my-sm-0" ><%=link_to "Home"%></button></li>
+            <li class="nav-item"><button class="btn my-2 my-sm-0" ><%=link_to "Job List"%></button></li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <h3 class="navbar-brand">Helping Hand</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <% if customer_signed_in? %>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item text-white">
+                Hi,<%= current_customer.email  %> ! 
+            </li>
+            <li class="nav-item">
+                <button class="btn  my-2 my-sm-0" ><%= link_to 'Edit Profile', edit_customer_registration_path %></button>
+            </li>
+            <li class="nav-item">
+            <button class="btn  my-2 my-sm-0" ><%= link_to 'Log out', destroy_customer_session_path, method: :delete %></button>
+                
+            </li>
+          <% end %>
+        </ul>
+    </div>
+</nav>
+    
 
     <%= yield %>
   </body>
