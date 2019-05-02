@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :workers, path: 'workers', controllers: { sessions: 'workers/sessions', registrations: 'workers/registrations'}
-  devise_for :customers, path: 'customers', controllers: { sessions: 'customers/sessions'}
+  devise_for :customers, path: 'customers', controllers: { sessions: 'customers/sessions', registrations: 'customers/registrations'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :customers
