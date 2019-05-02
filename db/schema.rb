@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_040938) do
     t.string "username"
     t.string "experience"
     t.string "description"
-    t.string "firstname" 
+    t.string "firstname"
     t.string "lastname"
     t.index ["email"], name: "index_workers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
