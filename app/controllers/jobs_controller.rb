@@ -7,6 +7,8 @@ class JobsController < ApplicationController
   def create
     
     @job = Job.new(job_params)
+    @job.customer_id = current_customer.id if !current_customer.nil?
+
     if @job.save
       redirect_to jobs_path
     else
