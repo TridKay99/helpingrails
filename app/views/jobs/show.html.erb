@@ -5,7 +5,7 @@
 <h3>Description</h3>
 <p><%= @job.description %></p>
 <h3>Price</h3>
-<p>This will say a price<p>
+<p><%= @job.price %></p>
 <%= link_to 'Delete', show_job_path(@job),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
