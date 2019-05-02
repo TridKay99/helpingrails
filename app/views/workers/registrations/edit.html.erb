@@ -28,6 +28,12 @@
     <%= f.text_area :description, autocomplete: "About Me"%>
   </div>
 
+  <div class="field">
+    <%= f.label :experience%><br />
+    <%= f.text_area :experience, autocomplete: "My Experience"%>
+  </div>
+
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -52,7 +58,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update"%>
   </div>
 <% end %>
 
