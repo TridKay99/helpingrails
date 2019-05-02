@@ -23,6 +23,6 @@ class WorkersController < ApplicationController
 
   private
     def worker_params
-      params.permit(:email)
+      params.permit(:email, :username, :firstname, :lastname, :description, :experience)
     end
 end
