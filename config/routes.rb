@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :workers
 
   get '/', to:'home#index', as: 'home'
-  
+
   get '/jobs', to: 'jobs#index', as: 'jobs'
 
   post '/jobs', to: 'jobs#create'
@@ -20,6 +20,14 @@ Rails.application.routes.draw do
   get '/jobs/:id/edit', to: 'jobs#edit', as: 'edit_job'
 
   delete '/jobs/:id', to: 'jobs#destroy'
+
+  get '/workers', to: 'worker#index', as: 'index_workers'
+
+  get '/workers/:id', to: 'workers#show', as: 'show_worker'
+
+  put '/workers/:id', to: 'workers#update'
+  patch 'workers/:id', to: 'workers#update'
+  get 'jobs/:id/edit', to: 'workers#edit', as: 'update_worker'
 
 
   root 'home#index'
