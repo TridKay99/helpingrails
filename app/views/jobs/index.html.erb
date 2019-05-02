@@ -3,7 +3,7 @@
 
 
 
-<% @jobs.each do |job| %>
+  <% @jobs.each do |job| %>
     <li>
       <td><%= job.title %></td>
       <td><%= job.description %></td>
@@ -14,3 +14,4 @@
               data: { confirm: 'Are you sure?' } %></td>
     </li>
   <% end %>
+
