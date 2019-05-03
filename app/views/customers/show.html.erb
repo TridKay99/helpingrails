@@ -12,8 +12,9 @@
   <hr>
 </div>
 <div>
-<% unless @customer.customer_reviews.empty? %>
-    <h4>Reviews</h4>
+  <h4>Reviews</h4>
+  <% unless @customer.customer_reviews.empty? %>
+    
     <% @customer.customer_reviews.each do | review |%>
       <h5>Title: <%= review.content%> </h5>
       <h6>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></h6>
@@ -30,7 +31,7 @@
 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
   list of your posted job
-</button>
+  </button>
 
 
 <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
