@@ -6,6 +6,8 @@
 <p><%= @job.description %></p>
 <h3>Price</h3>
 <p><%= @job.price %></p>
+<h3>posted by:</h3>
+<p><%= @job.customer.username %></p>
 
 <% if @job.uploaded_image.attached? %>
   <%= image_tag @job.uploaded_image.service_url, class: 'image-size' %>
@@ -16,7 +18,5 @@
 
 
 
-<%= link_to 'Delete', show_job_path(@job),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to "Back", :back %>
