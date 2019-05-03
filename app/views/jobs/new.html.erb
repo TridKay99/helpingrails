@@ -1,17 +1,19 @@
 <h1>Add new job</h1>
 
-<form action="<%= jobs_path %>" method="POST">
-  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+<%= form_for @job do |f| %>
 
-  <label>Title</label>
-    <input type="text" name="title" />
+  <%= f.label :title %><br />
+  <%= f.text_field :title, placeholder: "Job Title"%>
 
-  <label>Description</label>
-    <input type="textarea" name="description" />
+  <%= f.label :description %><br />
+  <%= f.text_area :description, placeholder: "Description"%>
 
-  <label>Price</label>
-    <input type="number" name="rating" />
+  <%= f.label :price %><br />
+  <%= f.number_field :price, placeholder: "Price"%>
 
-    <input type="submit" value="Create" />
-</form>
+  <%= f.submit "Submit"%>
+
+<% end %>
+
+
 <%= link_to "Back", :back %>
