@@ -4,5 +4,6 @@ class Worker < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :jobs
+         has_many :jobs, :dependent => :delete_all
+         has_many :worker_reviews, :dependent => :delete_all
 end
