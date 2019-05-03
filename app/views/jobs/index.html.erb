@@ -1,8 +1,9 @@
-<h1>Job Listing</h1>
-<%= link_to 'Add new job!', new_job_path %>
+<h1>Job Listing!</h1>
 
+   
 
-
+<% if customer_signed_in? %>
+  <%= link_to 'Add new job!', new_job_path %>
   <% @jobs.each do |job| %>
     <li>
       <td><%= job.title %></td>
@@ -15,4 +16,12 @@
               data: { confirm: 'Are you sure?' } %></td>
     </li>
   <% end %>
-
+<% else %>
+  <% @jobs.each do |job| %>
+    <li>
+      <td><%= job.title %></td>
+      <td><%= job.description %></td>
+      <td><%= job.price %></td>
+      <td><%= link_to 'Show', show_job_path(job) %></td>
+  <% end %>
+<% end %>
