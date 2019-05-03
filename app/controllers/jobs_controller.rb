@@ -9,7 +9,7 @@ class JobsController < ApplicationController
     @job = current_customer.jobs.new(job_params) if !current_customer.nil?
 
     if @job.save
-      redirect_to customer_path
+      redirect_to customer_path(current_customer)
     else
       render 'new'
     end
