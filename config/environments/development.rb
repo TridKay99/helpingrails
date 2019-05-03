@@ -63,9 +63,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.mailgun.org',
   port:                 587,
-  domain:               EVN['DOMAIN']
-  user_name:            EVN['USERNAME']
-  password:             EVN['PASSWORD']
+  domain:               EVN['DOMAIN'],
+  user_name:            EVN['USERNAME'],
+  password:             EVN['PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true }
 end
