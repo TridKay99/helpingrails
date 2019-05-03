@@ -19,10 +19,10 @@ class CustomersController < ApplicationController
     redirect_to root_path
   end
   
-  def delete
+  def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
-    redirect_to root_path
+    redirect_to customer_path
   end
 
   private
