@@ -5,12 +5,11 @@ class JobsController < ApplicationController
   end
 
   def create
-    
-    @job = Job.new(job_params)
-    @job.customer_id = current_customer.id if !current_customer.nil?
+ 
+    @job = current_customer.jobs.new(job_params) if !current_customer.nil?
 
     if @job.save
-      redirect_to jobs_path
+      redirect_to customer_path
     else
       render 'new'
     end
@@ -39,9 +38,9 @@ class JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
-
+    customer = @job.customer
     @job.destroy
-    redirect_to jobs_path
+    redirect_to customer_path(customer)
   end
 
 
