@@ -4,46 +4,47 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "Email"%>
+    <%= f.email_field :email, placeholder: "Email"%>
   </div>
+  <br/>
   
   <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autocomplete: "First Name" %>
+    <%= f.text_field :firstname, placeholder: "First Name" %>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autocomplete: "Last Name" %>
+    <%= f.text_field :lastname, placeholder: "Last Name" %>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "Username" %>
+    <%= f.text_field :username, placeholder: "Username" %>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :description%><br />
-    <%= f.text_area :description, autocomplete: "About Me"%>
+    <%= f.text_area :description, placeholder: "About Me"%>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, placeholder: "new-password" %>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, placeholder: "Re-type password" %>
   </div>
+  <br/>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<%= link_to 'Back', :back %>
 
 <%= render "workers/shared/links" %>
