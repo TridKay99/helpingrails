@@ -9,7 +9,9 @@
 
 
 puts "Star of Seeding..."
-# Job.destroy_all
+
+Customer.destroy_all
+Worker.destroy_all
 # 25.times do
 #   params = {
 #     title: Faker::Job.unique.title,
@@ -23,31 +25,31 @@ puts "Star of Seeding..."
 # puts "Seeding over.."
 
 puts 'Creating a customer user'
-customer = Customer.create({ :email => 'test@test.com.au', :password => '123456', :password_confirmation => '123456', :admin => false, moderator: false})
-puts regular.email
+3.times do 
+  customer = Customer.create({firstname: Faker::Name.first_name,               
+    lastname:  Faker::Name.last_name, username:  Faker::Name.first_name , password: '123456', 
+    email: Faker::Internet.email
+  })
+  3.times do 
+    customer.jobs.create(description: Faker::Job.field, title: Faker::Job.unique.title, price: rand(60..100))
+    customer.customer_reviews.create({content: Faker::Artist.name, description: Faker::Restaurant.review})
+  end
+
+end
+
+puts "customer user done"
 
 puts 'Creating a worker user'
-worker = Worker.create({ :email => 'moderator@moderator.com.au', :password => '123456', :password_confirmation => '123456', :admin => false, moderator: true})
-puts regular.moderator
-
-puts 'Creating books, authors and reviews'
-
-10.times do 
-  author_name = Faker::Book.author
-  author = Author.create({name: author_name})
-  5.times do
-    title = Faker::Book.title
-    description = Faker::Book.genre
-    rating = rand(1..5)
-    # author_id = author.id
-    book = Book.new({title: title, description: description, rating: rating})
-    book.author_id = author.id
-    book.save
-
-    3.times do
-      book.reviews.create({title: Faker::Artist.name, review: Faker::Restaurant.review})
-    end
-  end
+3.times do 
+  worker = Worker.create({firstname: Faker::Name.first_name,               
+    lastname:  Faker::Name.last_name, username:  Faker::Name.first_name , password: '123456', 
+    email: Faker::Internet.email, experience: Faker::Construction.trade
+  })
+  # 3.times do
+  #   worker.worker_reviews.create({content: Faker::Artist.name, description: Faker::Restaurant.review}) 
+  # end
 end
+puts "customer user done"
+
 
 puts "Seeding Over"

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :workers
-
+  
   get '/', to:'home#index', as: 'home'
 
   get '/jobs', to: 'jobs#index', as: 'jobs'
