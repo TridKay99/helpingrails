@@ -8,6 +8,9 @@ class JobsController < ApplicationController
  
     @job = current_customer.jobs.new(job_params) if !current_customer.nil?
 
+    @customer_exists = Customer.all.find_by(username: params[:customer])
+    @customer = @customer_exists.nil? ? Cusomter.create(username: params[:job][:customer]) : @customer_exists
+
     if @job.save
       redirect_to customer_path(current_customer)
     else
