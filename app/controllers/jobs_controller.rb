@@ -5,17 +5,18 @@ class JobsController < ApplicationController
   end
 
   def create
- 
-    @job = current_customer.jobs.new(job_params) if !current_customer.nil?
-
     @customer_exists = Customer.all.find_by(username: params[:customer])
     @customer = @customer_exists.nil? ? Cusomter.create(username: params[:job][:customer]) : @customer_exists
 
+    @job = current_customer.jobs.new(job_params) if !current_customer.nil?
     if @job.save
       redirect_to customer_path(current_customer)
     else
       render 'new'
     end
+    # New job was created. Now send email alerting me
+    @customer = current_customer
+    @JobMailer.with(customer: @customer).new_job_email.deliver_now
   end
 
   def new
