@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :workers
+  resources :charges
 
   get '/', to:'home#index', as: 'home'
 
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
   put '/workers/:id', to: 'workers#update'
   patch 'workers/:id', to: 'workers#update'
   get 'jobs/:id/edit', to: 'workers#edit', as: 'update_worker'
+
+
 
 
   root 'home#index'

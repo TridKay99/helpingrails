@@ -16,6 +16,12 @@
 <% end %>
 
 
+  <p>Job Creator: <%=link_to  @job.customer.username.upcase, customer_path(@job.customer) %></p>
+  <p>Genre: <%= @job.description %></p>
+  
+  <%= render "layouts/shared/stripe_form" %>
+
+
 
 
 <%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
