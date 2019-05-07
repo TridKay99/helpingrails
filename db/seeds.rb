@@ -12,15 +12,16 @@ puts "Star of Seeding..."
 
 Customer.destroy_all
 Worker.destroy_all
-# 25.times do
-#   params = {
-#     title: Faker::Job.unique.title,
-#     description: Faker::Job.field
-#   }
-#   puts "Creating Job # {params}"
-#   job = Job.new(params)
-#   job.save
-# end
+Job.destroy_all
+25.times do
+  params = {
+    title: Faker::Job.unique.title,
+    description: Faker::Job.field
+  }
+  puts "Creating Job # {params}"
+  job = Job.new(params)
+  job.save
+end
 
 # puts "Seeding over.."
 
