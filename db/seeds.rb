@@ -23,7 +23,7 @@ Job.destroy_all
   job.save
 end
 
-# puts "Seeding over.."
+puts "jobs done"
 
 puts 'Creating a customer user'
 3.times do 
