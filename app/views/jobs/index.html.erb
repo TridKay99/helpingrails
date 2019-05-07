@@ -1,23 +1,28 @@
-<h1>Job Listing!</h1>
+<div class="job-index">
+  <h1 class="title">Job Listing!</h1>
 
-   
+    
 
-<% if customer_signed_in? %>
-  <%= link_to 'Add new job!', new_job_path %>
-  <% @jobs.each do |job| %>
-    <li>
-      <td><%= job.title %></td>
-      <td><%= job.description %></td>
-      <td><%= job.price %></td>
-      <td><%= link_to 'Show', show_job_path(job) %></td>
-    </li>
+  <% if customer_signed_in? %>
+    <%= link_to 'Add new job!', new_job_path %>
+    <% @jobs.each do |job| %>
+      <li>
+        <td><%= job.title %></td>
+        <td><%= job.description %></td>
+        <td><%= job.price %></td>
+        <td><%= link_to 'Show', show_job_path(job) %></td>
+      </li>
+    <% end %>
+  <% else %>
+    <% @jobs.each do |job| %>
+      <li>
+        <td><%= job.title %></td>
+        <td><%= job.description %></td>
+        <td><%= job.price %></td>
+        <td><%= link_to 'Show', show_job_path(job) %></td>
+    <% end %>
   <% end %>
-<% else %>
-  <% @jobs.each do |job| %>
-    <li>
-      <td><%= job.title %></td>
-      <td><%= job.description %></td>
-      <td><%= job.price %></td>
-      <td><%= link_to 'Show', show_job_path(job) %></td>
-  <% end %>
-<% end %>
+</div>
+
+
+

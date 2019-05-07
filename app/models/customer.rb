@@ -6,4 +6,5 @@ class Customer < ApplicationRecord
          
   has_many :jobs, :dependent => :delete_all
   has_many :customer_reviews, :dependent => :delete_all
+  validates :username, uniqueness: true
 end
