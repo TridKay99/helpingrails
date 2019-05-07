@@ -5,6 +5,7 @@
 
   <% if customer_signed_in? %>
     <%= link_to 'Add new job!', new_job_path %>
+  <% end %>
     <% @jobs.each do |job| %>
       <li>
         <td><%= job.title %></td>
@@ -13,15 +14,6 @@
         <td><%= link_to 'Show', show_job_path(job) %></td>
       </li>
     <% end %>
-  <% else %>
-    <% @jobs.each do |job| %>
-      <li>
-        <td><%= job.title %></td>
-        <td><%= job.description %></td>
-        <td><%= job.price %></td>
-        <td><%= link_to 'Show', show_job_path(job) %></td>
-    <% end %>
-  <% end %>
 </div>
 
 

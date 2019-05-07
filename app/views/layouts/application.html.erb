@@ -26,6 +26,7 @@
             <ul class="navbar-nav ml-auto">
                 <% if customer_signed_in? %>
                 
+
                 <li class="nav-item text-white">
                     Hi,<%= current_customer.username %> ! you logged in as Customer.
                 </li>
@@ -50,8 +51,7 @@
     </nav>
 
 
-    
-
+   
     <%= yield %>
   </body>
 </html>

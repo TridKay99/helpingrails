@@ -3,7 +3,6 @@
 </head>
 <body>
 
-
 <!--==========================
     Header
   ============================-->
@@ -20,13 +19,18 @@
         <ul class="nav-menu">
           
           <li><a><%= link_to 'Browse Jobs', jobs_path %></a></li>
-          
-          <%=  customer_signed_in? || worker_signed_in?%>
-            <%= customer_signed_in? %>
-              <li><a><%= link_to 'Edit Profile', edit_customer_registration_path %></a></li>
 
-          <li><a href="#">Sign up</a></li>
-          <li><a href="#">Log in</a></li>
+            <% if customer_signed_in? %>
+              <li><a><%= link_to 'Edit Profile', edit_customer_registration_path %></a></li>
+              <li><a><%= link_to 'Log out', destroy_customer_session_path, method: :delete %></a></li>
+            <% end %>
+            <% if worker_signed_in? %>
+              <li><a><%= link_to 'Edit Profile', edit_worker_registration_path %></a></li>
+              <li><a><%= link_to 'Log out', destroy_worker_session_path, method: :delete %>
+            <% end %>
+          
+         <!-- <li><a href="#">Sign up</a></li>
+          <li><a href="#">Log in</a></li> -->
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
