@@ -95,7 +95,7 @@ body{
 
 
 /*---------------------------------------------*/
-.input100 {
+.input200 {
   font-family: Poppins-Regular;
   font-size: 15px;
   color: #555555;
@@ -106,7 +106,7 @@ body{
 	height: 40px;
 }
 
-.focus-input100::before {
+.focus-input200::before {
   content: "";
   display: block;
   position: absolute;
@@ -131,13 +131,13 @@ body{
 [ Responsive ]*/
 
 @media (max-width: 576px) {
-  .login100-form {
+  .login200-form {
     padding: 43px 15px 57px 117px;
   }
 }
 
 @media (max-width: 480px) {
-  .login100-form {
+  .login200-form {
     padding: 43px 15px 57px 15px;
   }
 }
