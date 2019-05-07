@@ -2,10 +2,10 @@
 
 <h3>title</h3>
 <p><%= @job.title%></p>
+
 <h3>Description</h3>
 <p><%= @job.description %></p>
-<h3>Price</h3>
-<p><%= @job.price %></p>
+
 <h3>posted by:</h3>
 <p><%= @job.customer.username %></p>
 <p>Job Creator: <%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
@@ -18,12 +18,6 @@
 <% else %>
   <p>No image for this job</p>
 <% end %>
-
-
-  <p>Job Creator: <%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
-  <p>Genre: <%= @job.description %></p>
-  
-  <%= render "layouts/shared/stripe_form" %>
 
 
 
