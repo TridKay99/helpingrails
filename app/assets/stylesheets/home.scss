@@ -9,6 +9,7 @@ body {
   width: 100%;
   margin:0;
   color: black;
+  height:100vh;
 }
 
 // a {
@@ -461,23 +462,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 2px solid #22f87b;
   background: #22f87b;
 }
-// #intro .scrollto1{
-//   font-family: "Raleway", sans-serif;
-//   font-weight: 500;
-//   font-size: 14px;
-//   letter-spacing: 1px;
-//   display: inline-block;
-//   padding: 12px 32px;
-//   border-radius: 50px;
-//   transition: 0.5s;
-//   line-height: 1;
-//   margin: 10px;
-//   color: black;
-//   -webkit-animation-delay: 0.8s;
-//   animation-delay: 0.8s;
-//   border: 2px solid #22f87b;
-//   background: #22f87b
-// }
 
 #intro .scrollto1:hover  {
   background: #f8f52211;
@@ -485,30 +469,30 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 2px solid #22f87b;
 }
 
-// @-webkit-keyframes pulsate-btn {
-//   0% {
-//     -webkit-transform: scale(0.6, 0.6);
-//     transform: scale(0.6, 0.6);
-//     opacity: 1;
-//   }
+@-webkit-keyframes pulsate-btn {
+  0% {
+    -webkit-transform: scale(0.6, 0.6);
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
 
-//   100% {
-//     -webkit-transform: scale(1, 1);
-//     transform: scale(1, 1);
-//     opacity: 0;
-//   }
-// }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
 
-// @keyframes pulsate-btn {
-//   0% {
-//     -webkit-transform: scale(0.6, 0.6);
-//     transform: scale(0.6, 0.6);
-//     opacity: 1;
-//   }
+@keyframes pulsate-btn {
+  0% {
+    -webkit-transform: scale(0.6, 0.6);
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
 
-//   100% {
-//     -webkit-transform: scale(1, 1);
-//     transform: scale(1, 1);
-//     opacity: 0;
-//   }
-// }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}

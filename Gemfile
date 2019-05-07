@@ -75,3 +75,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'aws-sdk-s3', '~> 1.0.0.rc2'
+gem 'stripe'
+gem 'dotenv-rails', groups: [:development, :test]
