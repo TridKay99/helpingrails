@@ -11,8 +11,9 @@
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Purchase Book"
-          data-amount=<%= @job.price%>
+          Stripe.setPublishableKey('pk_test_Em2S3ZfNcLAtbisihLDg4sDv00gdorfcYP');
+          data-key="<%= Rails.configuration.stripe[:publishable_Key] %>"
+          data-description="Purchase Job"
+          data-amount=<%= @job.price * 100%>
           data-locale="auto"></script>
 <% end %>
