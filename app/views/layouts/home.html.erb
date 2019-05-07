@@ -35,10 +35,14 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           
-          <li><a href="#">Browse Jobs</a></li>
+          <li><a><%= link_to 'Browse Jobs', jobs_path %></a></li>
+          
+          <%=  customer_signed_in? || worker_signed_in?%>
+            <%= customer_signed_in? %>
+              <li><a><%= link_to 'Edit Profile', edit_customer_registration_path %></a></li>
+
           <li><a href="#">Sign up</a></li>
           <li><a href="#">Log in</a></li>
-          <li class="menu-active"><a href="home_path">Home</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -55,13 +59,6 @@
         <%= link_to 'CUSTOMER', new_customer_session_path, class: "scrollto customer_btn" %>
         <%= link_to 'WORKER', new_worker_session_path, class: "scrollto worker_btn" %>
       </div>
-      
     </div>
   </section>
-
- 
-
-
-
-
 </body>

@@ -1,4 +1,6 @@
-body{
+.customers-sessions-new-login{
+
+
   font-family: 'Mukta', sans-serif;
 	height:100vh;
 	// min-height:550px;
@@ -8,7 +10,7 @@ body{
 	background-position:center;
 	position:relative;
   // overflow-y: hidden;
-}
+
 .white-panel a {
 	color: black;
 }
@@ -17,7 +19,7 @@ body{
     top: 50%;
     transform: translateY(-50%);
 	text-align:center;
-    width:50%;
+    width:70%;
 	right:0;left:0;
     margin:auto;
     height:400px;
@@ -205,4 +207,5 @@ body{
     visibility: visible;
     opacity: 1;
     }
+}
 }
