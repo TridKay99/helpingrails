@@ -1,57 +1,50 @@
 <div class="customers-sessions-new-login">
 
-<body>
+  <div class="login-reg-panel">
+    <div class="register-info-box">
+        <h2>Don't have an account?</h2>
+        <p>Let's create one!</p>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Sign up", new_registration_path(resource_name), class: "btn m2"%>
+        <% end %>        
+    </div>
 
-
-<div class="login-reg-panel">
-  <div class="register-info-box">
-			<h2>Don't have an account?</h2>
-			<p>Let's create one!</p>
-			<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  			<%= link_to "Sign up", new_registration_path(resource_name), class: "btn m2"%>
-			<% end %> 
-      			
-		</div>
-
-
-  <div class="white-panel">
-		<div class="login-show">
-      <h2>Log in</h2>
-      <p>As a Customer</p>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email,  class:"input200", placeholder: "enter your password" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, class:"input200", placeholder: "enter your password" %>
-					
-				</div>
-
-        <% if devise_mapping.rememberable? %>
+    <div class="white-panel">
+      <div class="login-show">
+        <h2>Log in</h2>
+        <p>As a Customer</p>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          
           <div class="form-group">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :email %><br />
+            <%= f.email_field :email,  class:"input200", placeholder: "enter your password" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, class:"input200", placeholder: "enter your password" %>
+            
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class:"btn m1" %>
           </div>
         <% end %>
-
-        <div class="actions">
-          <%= f.submit "Log in", class:"btn m1" %>
-        </div>
-      <% end %>
       </div>
-    
+      
 
-<%= render "customers/shared/links" %>
+    <%= render "customers/shared/links" %>
 
+    </div>
   </div>
 </div>
-
-
-</body>
 
 	
 	
