@@ -48,6 +48,12 @@ class JobsController < ApplicationController
   end
 
 
+  def accept_email
+    @customer = @job.customer
+    JobMailer.with(customer: @customer).accept_email.deliver_now
+  end
+
+
   def param
     puts params
   end
