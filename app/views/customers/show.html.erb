@@ -21,7 +21,7 @@
   <h4>Reviews</h4>
     <%= render "customer_reviews/customer-review" %>
   </div>
-    <%= link_to 'leave review', customerreviews_path %>
+    <%= link_to 'leave review', new_customer_review_path({:customer =>@customer}) %>
   <%= link_to 'Add new job!', new_job_path %>
 
 
