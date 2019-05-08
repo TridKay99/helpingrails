@@ -32,8 +32,6 @@ class JobsController < ApplicationController
   end
 
   def update
-    @job.accepted = true
-    @job.save
     
     @job = Job.find(params[:id])
     if @job.update(job_params)
@@ -41,6 +39,16 @@ class JobsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def accept
+    @job = Job.find(params[:id])
+
+    if @job.accepted = true
+      @job.save
+    end
+
+    redirect_to show_job_path
   end
 
   def destroy
@@ -63,6 +71,6 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title, :description, :price, :uploaded_image)
+      params.require(:job).permit(:title, :description, :price, :uploaded_image, :accepted)
     end
 end
