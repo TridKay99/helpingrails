@@ -6,7 +6,7 @@
 <h3>Job posted by:</h3>
 <p><%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
 
-  <% if customer_signed_in? %>
+  <% if customer_signed_in? && @job.accepted == true %>
     <%= render "layouts/shared/stripe_form" , job: @job%>
   <% else %>
     <h3>Price</h3>
