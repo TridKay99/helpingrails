@@ -7,10 +7,7 @@
   <p><%= @customer.email %></p>
 
 
- 
 
-
-  
   
   <%# <%= render "layouts/shared/stripe_form" %>
   
@@ -23,7 +20,6 @@
   <h4>Reviews</h4>
     <%= render "customer_reviews/customer-review" %>
   </div>
-    <%= link_to 'leave review', customerreviews_path %>
   <%= link_to 'Add new job!', new_job_path %>
 
 
@@ -52,7 +48,7 @@
 
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                     <% if job.accepted == true %>
-                      <button type="button" class="btn btn-secondary"><%= render "layouts/shared/stripe_form" %></button>
+                      <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
                     <% end %>
                     <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                     <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
