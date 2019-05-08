@@ -43,11 +43,12 @@ class JobsController < ApplicationController
 
   def accept
     @job = Job.find(params[:id])
-
-    if @job.accepted = true
-      @job.save
-    end
-
+    @job.accepted = true
+    @worker = Worker.find(params[:worker])
+    @job.worker_id = @worker.id
+    @job.save
+    @worker.jobs << @job
+    
     redirect_to show_job_path
   end
 
@@ -71,6 +72,6 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title, :description, :price, :uploaded_image, :accepted)
+      params.require(:job).permit(:title, :description, :price, :uploaded_image, :accepted, :worker)
     end
 end
