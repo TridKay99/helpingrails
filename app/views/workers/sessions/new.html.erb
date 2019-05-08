@@ -1,4 +1,5 @@
 
+
 <div class="workers-sessions-new-login">
 
   <div class="login-reg-panel">
@@ -18,6 +19,9 @@
         <p>As a Worker</p>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           
+
+        <% if devise_mapping.rememberable? %>
+
           <div class="form-group">
             <%= f.label :email %><br />
             <%= f.email_field :email,  class:"input200", placeholder: "enter your password" %>
@@ -35,18 +39,19 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
+        <% end %>
 
           <div class="actions">
             <%= f.submit "Log in", class:"btn m2" %>
           </div>
         <% end %>
       </div>
+
       
 
       <%= render "workers/shared/links" %>
 
     </div>
   </div>
-
 
 </div>
