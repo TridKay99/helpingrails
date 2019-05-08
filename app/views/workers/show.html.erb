@@ -45,16 +45,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <% @worker.jobs.each do | job |%>
+        <% @worker.jobs.each do | job | %>
         <div class="list-group">
             <div class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= job.title%></h5>
+                 <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                  
                     <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                     <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
                     <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job) %></button>
+                    
                   
                 </div>
               </div>
