@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/jobs/:id/edit', to: 'jobs#edit', as: 'edit_job'
 
   delete '/jobs/:id', to: 'jobs#destroy'
-
+  
   get '/workers', to: 'worker#index', as: 'index_workers'
 
   get '/workers/:id', to: 'workers#show', as: 'show_worker'
