@@ -1,8 +1,11 @@
 <div class="customer-profile">
-  <h2><%= @customer.username%></h2>
+  <h1><%= @customer.username%></h1>
   <hr>
+  <h4>Name</h4>
+  <p><%= @customer.firstname %> <%= @customer.lastname %></p>
+  <h4>Email</h4>
+  <p><%= @customer.email %></p>
   
-  <p>Email: <%= @customer.email %></p>
   
   <%# <%= render "layouts/shared/stripe_form" %>
   
