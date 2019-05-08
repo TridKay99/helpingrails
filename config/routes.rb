@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :workers
-  
+  resources :customer_reviews
   resources :charges
 
 

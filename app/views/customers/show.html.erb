@@ -6,8 +6,7 @@
   <h4>Email</h4>
   <p><%= @customer.email %></p>
 
-  <h4>status: pending</h4>
-  <p> job accepted <p> 
+ 
 
   
   
@@ -20,19 +19,9 @@
 </div>
 <div>
   <h4>Reviews</h4>
-  <% unless @customer.customer_reviews.empty? %>
-    
-    <% @customer.customer_reviews.each do | review |%>
-      <h5>Title: <%= review.content%> </h5>
-      <h6>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></h6>
-      <%# <p><%= customerreview.review </p> %>
-      
-      <hr>
-    <% end %>
-  
-  <% end %>
+    <%= render "customer_reviews/customer-review" %>
   </div>
-
+    <%= link_to 'leave review', customerreviews_path %>
   <%= link_to 'Add new job!', new_job_path %>
 
 
