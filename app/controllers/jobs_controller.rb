@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     @job = current_customer.jobs.new(job_params) if !current_customer.nil?
     if @job.save
       @customer = current_customer
-      @JobMailer.with(customer: @customer, job: @job).new_job_email.deliver_now
+      JobMailer.with(customer: @customer, job: @job).new_job_email.deliver_now
       redirect_to customer_path(current_customer)
     else
       render 'new'
