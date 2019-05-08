@@ -21,9 +21,15 @@ Rails.application.routes.draw do
   put '/jobs/:id', to: 'jobs#update'
   patch '/jobs/:id', to: 'jobs#update'
   get '/jobs/:id/edit', to: 'jobs#edit', as: 'edit_job'
+  
+  # no as: because it redirects to the show_job page?
+  put 'jobs/:id', to: 'jobs#accept'
+  post 'jobs/:id', to: 'jobs#accept'
+  get '/jobs/:id', to: 'jobs#accept' 
 
   delete '/jobs/:id', to: 'jobs#destroy'
   
+
   get '/workers', to: 'worker#index', as: 'index_workers'
 
   get '/workers/:id', to: 'workers#show', as: 'show_worker'
@@ -32,6 +38,8 @@ Rails.application.routes.draw do
   patch 'workers/:id', to: 'workers#update'
   get 'jobs/:id/edit', to: 'workers#edit', as: 'update_worker'
   # get '/jobs/:id', to: 'jobs#accept_email', as: 'show_job'
+
+  
 
 
 

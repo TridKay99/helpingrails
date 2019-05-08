@@ -6,7 +6,7 @@
   <% if customer_signed_in? %>
     <%= link_to 'Add new job!', new_job_path %>
   <% end %>
-    <% @jobs.each do |job| %>
+    <% @jobs.where(accepted: false).each do |job| %>
       <li>
         <td><%= job.title %></td>
         <td><%= job.description %></td>

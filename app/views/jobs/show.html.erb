@@ -3,14 +3,14 @@
 <h3>Description</h3>
 <p><%= @job.description %></p>
 
-<h3>posted by:</h3>
-<p><%= @job.customer.username %></p>
-<p>Job Creator: <%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
-
-  <p>Genre: <%= @job.description %></p>
+<h3>Job posted by:</h3>
+<p><%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
 
   <% if customer_signed_in? %>
     <%= render "layouts/shared/stripe_form" , job: @job%>
+  <% else %>
+    <h3>Price</h3>
+    <p>$<%= @job.price %><p>
   <% end %>
 
 
@@ -20,11 +20,13 @@
   <p>No image for this job</p>
 <% end %>
 
-<% if @job.accepted == true %>
+<% if @job.accepted %>
   <p>job accepted!</p>
 <% else %>
   <p>Job not accepted</p>
 <% end %>
+
+
 
 
 
@@ -35,6 +37,6 @@
 
 <%= link_to "Back", :back %>
 
-<% if worker_signed_in? %>
-  <%= link_to 'Accept job', show_job_path(@job), method: :accept_email %>
+<% if worker_signed_in? && !@job.accepted %>
+  <%= link_to 'Accept job', show_job_path(@job, worker: current_worker.id),  method: :accept %>
 <% end %>
