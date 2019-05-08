@@ -29,9 +29,12 @@
 
 
 
-
-<%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if customer_signed_in?%>
+  <%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <%= link_to "Back", :back %>
 
-<%= link_to 'Accept job', show_job_path(@job), method: :accept_email %>
+<% if worker_signed_in? %>
+  <%= link_to 'Accept job', show_job_path(@job), method: :accept_email %>
+<% end %>
