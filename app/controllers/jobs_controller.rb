@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
   def create
     @customer_exists = Customer.all.find_by(username: params[:customer])
-    @customer = @customer_exists.nil? ? Cusomter.create(username: params[:job][:customer]) : @customer_exists
+    @customer = @customer_exists.nil? ? Customer.create(username: params[:job][:customer]) : @customer_exists
 
     @job = current_customer.jobs.new(job_params) if !current_customer.nil?
     if @job.save
