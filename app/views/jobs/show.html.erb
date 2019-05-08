@@ -20,7 +20,7 @@
   <p>No image for this job</p>
 <% end %>
 
-<% if @job.accepted == true %>
+<% if @job.accepted %>
   <p>job accepted!</p>
 <% else %>
   <p>Job not accepted</p>
@@ -37,6 +37,6 @@
 
 <%= link_to "Back", :back %>
 
-<% if worker_signed_in? %>
-  <%= link_to 'Accept job', show_job_path(@job), method: :accept %>
+<% if worker_signed_in? && !@job.accepted %>
+  <%= link_to 'Accept job', show_job_path(@job, worker: current_worker.id),  method: :accept %>
 <% end %>
