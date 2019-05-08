@@ -17,19 +17,10 @@
 </li>
 <div>
   <h4>Reviews</h4>
-  <% unless @worker.worker_reviews.empty? %>
-    
-    <% @worker.worker_reviews.each do | review |%>
-      <h5>Title: <%= review.content%> </h5>
-      <h6>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></h6>
-      <%# <p><%= workerreview.review </p> %>
-      
-      <hr>
-    <% end %>
-  
-  <% end %>
+  <%= render "worker_reviews/worker-review" %>
   </div>
-
+    <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>
+  
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
   list of job that you have completed:
   </button>

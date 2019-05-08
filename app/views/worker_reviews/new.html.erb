@@ -1,0 +1,46 @@
+<div class="limiter">
+      
+        <div class="wrap-login100"> 
+          <span class="login100-form-title p-b-59">
+						Leave Review
+					</span>
+          
+
+        
+          <%= form_for(@workerreview, url: worker_reviews_path, :action => "create") do |f| %>
+         
+           <%= f.hidden_field :worker_id, :value => @worker %>
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :content, class:"label-input100" %>
+            <%= f.text_field :content, class:"input100"%>
+            <span class="focus-input100"></span>
+          </div>
+          
+
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :description, class:"label-input100" %>
+            <%= f.text_field :description, class:"input100"%>
+          </div>
+          
+
+          
+          <div class="con-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn">
+                <%= f.submit "Submit", class:"login-m1" %>
+              </button>
+            </div>
+          
+          
+            <% end %>
+          
+            <%# <%= link_to 'Back', :back %> 
+          
+          </div>
+          
+        </div>
+      <div class="login100-more">
+        <%# <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
+    </div>

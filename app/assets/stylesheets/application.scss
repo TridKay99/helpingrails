@@ -13,7 +13,13 @@
  *= require_tree
  */
  @import 'bootstrap';
- #nav-item1 { color: white; text-align: center;}
-body{
-  height: 100vh;
+//  #nav-item1 { color: white; text-align: center;}
+// body{
+//   height: 100vh;
+// }
+.navbar-brand img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+
 }
