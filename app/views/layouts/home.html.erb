@@ -26,13 +26,16 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="#" alt="" title=""></a>
+            <img src="image" class="img-fluid">
+      </div>
       </div>
 
       <nav id="nav-menu-container">
-        <ul class="nav-menu">
+          <ul class="nav-menu">
           
           <li><a><%= link_to 'Browse Jobs', jobs_path %></a></li>
+          <li><a><%= link_to 'Customer Sign in', new_customer_session_path, class: "scrollto customer_btn" %><a>
+          <li><a><%= link_to 'Worker Sign', new_worker_session_path, class: "scrollto worker_btn" %><a>
 
             <% if customer_signed_in? %>
               <li><a><%= link_to 'Edit Profile', edit_customer_registration_path %></a></li>
