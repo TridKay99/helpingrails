@@ -9,7 +9,7 @@
 <h3>posted by:</h3>
 <p><%= @job.customer.username %></p>
 <p>Job Creator: <%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
-  <p>Genre: <%= @job.description %></p>
+  <%# <p>Genre: <%= @job.description %></p> %>
   
   <%= render "layouts/shared/stripe_form" %>
 
@@ -23,4 +23,7 @@
 
 
 <%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <%= link_to "Back", :back %>
+
+<%= link_to 'Accept job', show_job_path(@job), method: :accept_email %>

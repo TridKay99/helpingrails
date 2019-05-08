@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   put '/workers/:id', to: 'workers#update'
   patch 'workers/:id', to: 'workers#update'
   get 'jobs/:id/edit', to: 'workers#edit', as: 'update_worker'
-
+  # get '/jobs/:id', to: 'jobs#accept_email', as: 'show_job'
 
 
 

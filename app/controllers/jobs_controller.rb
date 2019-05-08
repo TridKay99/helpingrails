@@ -6,12 +6,12 @@ class JobsController < ApplicationController
 
   def create
     @customer_exists = Customer.all.find_by(username: params[:customer])
-    @customer = @customer_exists.nil? ? Cusomter.create(username: params[:job][:customer]) : @customer_exists
+    @customer = @customer_exists.nil? ? Customer.create(username: params[:job][:customer]) : @customer_exists
 
     @job = current_customer.jobs.new(job_params) if !current_customer.nil?
     if @job.save
       @customer = current_customer
-      @JobMailer.with(customer: @customer, job: @job).new_job_email.deliver_now
+      JobMailer.with(customer: @customer).new_job_email.deliver_now
       redirect_to customer_path(current_customer)
     else
       render 'new'
@@ -45,6 +45,12 @@ class JobsController < ApplicationController
     customer = @job.customer
     @job.destroy
     redirect_to customer_path(customer)
+  end
+
+
+  def accept_email
+    @customer = @job.customer
+    JobMailer.with(customer: @customer).accept_email.deliver_now
   end
 
 
