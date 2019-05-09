@@ -1,50 +1,76 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="workers-registrations-new-signup">
 
-  <div class="field">
-    <%= f.email_field :email, placeholder: "Email"%>
-  </div>
-  <br/>
   
-  <div class="field">
-    <%= f.text_field :firstname, placeholder: "First Name" %>
-  </div>
-  <br/>
+    <div class="limiter">
+      
+        <div class="wrap-login100"> 
+          <span class="login100-form-title p-b-59">
+						Sign Up
+					</span>
+          
+        
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          
 
-  <div class="field">
-    <%= f.text_field :lastname, placeholder: "Last Name" %>
-  </div>
-  <br/>
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :First_name, class:"label-input100" %>
+            <%= f.text_field :firstname, class:"input100"%>
+            <span class="focus-input100"></span>
+          </div>
+          
 
-  <div class="field">
-    <%= f.text_field :username, placeholder: "Username" %>
-  </div>
-  <br/>
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :Last_name, class:"label-input100" %>
+            <%= f.text_field :lastname, class:"input100", placeholder: "Last Name"%>
+          </div>
+          
 
-  <div class="field">
-    <%= f.text_area :description, placeholder: "About Me"%>
-  </div>
-  <br/>
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :Username, class:"label-input100"%>
+            <%= f.text_field :username, class:"input100",placeholder: "Username"%>
+          </div>
+          
 
-  <div class="field">
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, placeholder: "new-password" %>
-  </div>
-  <br/>
+          <div class="wrap-input100 validate-input">
+            <%= f.label :Email, class:"label-input100"%>
+            <%= f.email_field :email, class:"input100", autofocus: true, placeholder: "Email" %>
+          </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, placeholder: "Re-type password" %>
-  </div>
-  <br/>
+          <div class="wrap-input100 validate-input">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.label :Password, class:"label-input100"%>
+            <%= f.password_field :password, class:"input100", placeholder: "Password" %>
+          </div>
+         
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= link_to 'Back', :back %>
+          <div class="wrap-input100 validate-input">
+            <%= f.label :Retype_Password, class:"label-input100" %>
+            <%= f.password_field :password_confirmation,class:"input100", placeholder: "Re-type password" %>
+          </div> 
 
-<%= render "workers/shared/links" %>
+          
+          <div class="con-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn">
+                <%= f.submit "Sign up", class:"login-m1" %>
+              </button>
+            </div>
+          
+          
+            <% end %>
+          
+            <%# <%= link_to 'Back', :back %> 
+            <%= render "workers/shared/links" %>
+          </div>
+          
+        </div>
+      <div class="login100-more">
+        <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
+    </div>
+
+</div>
