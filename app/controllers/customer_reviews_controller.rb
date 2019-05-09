@@ -23,7 +23,4 @@ class CustomerReviewsController < ApplicationController
     def review_params
       params.require(:customerreview).permit(:content, :description)
     end
-
-
-
 end
