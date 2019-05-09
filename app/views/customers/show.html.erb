@@ -46,7 +46,9 @@
                 <h5 class="mb-1"><%= job.title%></h5>
                   <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                  
+                    <% if job.accepted == true %>
+                    <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
+                    <% end %>
                     <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                     <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
                     <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,
