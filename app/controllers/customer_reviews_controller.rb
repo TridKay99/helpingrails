@@ -1,12 +1,12 @@
 class CustomerReviewsController < ApplicationController
   def new
     @customerreview = CustomerReview.new
+    @customer = params[:customer]
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
+    @customer = Customer.find(params[:customer_review][:customer_id])
     @customerreview = @customer.customer_reviews.create(review_params)
-
     @customerreview.save
     redirect_to customer_path(@customer)
     # binding.pry
@@ -21,6 +21,6 @@ class CustomerReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:customerreview).permit(:content, :description)
+      params.require(:customer_review).permit(:content, :description, :customer_id)
     end
 end

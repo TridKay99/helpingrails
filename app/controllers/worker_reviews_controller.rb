@@ -1,10 +1,11 @@
 class WorkerReviewsController < ApplicationController
   def new
     @workerreview = WorkerReview.new
+    @worker = params[:worker]
   end
 
   def create
-    @worker = WorkerReview.find(params[:worker_id])
+    @worker = Worker.find(params[:worker_review][:worker_id])
     @workerreview = @worker.worker_reviews.create(review_params)
 
     @workerreview.save
@@ -21,7 +22,7 @@ class WorkerReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:workerreview).permit(:content, :description)
+      params.require(:worker_review).permit(:content, :description, :worker_id)
     end
 
 

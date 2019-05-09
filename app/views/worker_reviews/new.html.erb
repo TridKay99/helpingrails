@@ -7,9 +7,9 @@
           
 
         
-          <%= form_for(@customerreview, url: customer_reviews_path, :action => "create") do |f| %>
+          <%= form_for(@workerreview, url: worker_reviews_path, :action => "create") do |f| %>
          
-           <%= f.hidden_field :customer_id, :value => @customer %>
+           <%= f.hidden_field :worker_id, :value => @worker %>
           <div class="wrap-input100 validate-input" data-validate="Name is required">
             <%= f.label :content, class:"label-input100" %>
             <%= f.text_field :content, class:"input100"%>

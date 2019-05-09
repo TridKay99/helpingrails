@@ -1,35 +1,38 @@
 
-<div class="home">
-
 
 <!--==========================
     Header
   ============================-->
-  <header id="header">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="#" alt="" title=""></a>
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          
-          <li><a><%= link_to 'Browse Jobs', jobs_path %></a></li>
-          
-          <%=  customer_signed_in? || worker_signed_in?%>
-            <%= customer_signed_in? %>
-              <li><a><%= link_to 'Edit Profile', edit_customer_registration_path %></a></li>
-
-          <li><a href="#">Sign up</a></li>
-          <li><a href="#">Log in</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
-
+  <!--
+  <nav class="navbar  ">
+        <div class="container">
+            <a class="navbar-brand1" href="#">
+                <%= link_to image_tag("Logo.png", alt: "logo"), '/', class: 'navbar-brand1'%>
+                </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+-->
   <!--==========================
     Intro Section
   ============================-->
@@ -44,4 +47,8 @@
     </div>
   </section>
 
-</div>
+
+
+
+
+
