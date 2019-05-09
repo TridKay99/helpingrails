@@ -2,7 +2,7 @@
       
         <div class="wrap-login100"> 
           <span class="login100-form-title p-b-59">
-						Leave Review
+						Leave A Review!
 					</span>
           
 
@@ -10,16 +10,16 @@
           <%= form_for(@customerreview, url: customer_reviews_path, :action => "create") do |f| %>
          
            <%= f.hidden_field :customer_id, :value => @customer %>
+
           <div class="wrap-input100 validate-input" data-validate="Name is required">
-            <%= f.label :content, class:"label-input100" %>
             <%= f.text_field :content, class:"input100"%>
             <span class="focus-input100"></span>
           </div>
           
 
           <div class="wrap-input100 validate-input" data-validate="Name is required">
-            <%= f.label :description, class:"label-input100" %>
-            <%= f.text_field :description, class:"input100"%>
+            <%= f.label :Description, class:"label-input100" %>
+            <%= f.text_area :description, class:"input100", cols: "40", rows: "15"%>
           </div>
           
 
