@@ -47,7 +47,9 @@
                 </li>
                 <%else%>
                     <li class="nav-item">
-                    Hi,<%= current_worker.username %> ! you logged in as Worker.
+
+                        <a class="nav-link" >Hi,<%= current_worker.username %> ! you logged in as Worker.</a>
+
                     </li>
                     
                     
@@ -95,45 +97,3 @@
     <%= yield %>
   </body>
 </html>
-<!--
-
-<body>  
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
-                <img src="Logo.png" class="img-fluid">
-            </ul>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <% if customer_signed_in? || worker_signed_in? %>
-            <ul class="navbar-nav ml-auto">
-                <% if customer_signed_in? %>
-                
-
-                <li class="nav-item text-white">
-                    Hi,<%= current_customer.username %> ! you logged in as Customer.
-                </li>
-                <li class="nav-item">
-                    <a><button class="btn my-2 my-sm-0" ><%=link_to "Browse Jobs", jobs_path %></button></a>
-                    <a><button class="btn  my-2 my-sm-0" ><%= link_to 'User Profile', current_customer %></button></a>
-                    <a><button class="btn  my-2 my-sm-0" ><%= link_to 'Edit Profile', edit_customer_registration_path %></button></a>
-                </li>
-                <%else%>
-                <li class="nav-item text-white">
-                    Hi,<%= current_worker.username %> ! you logged in as Worker.
-                </li>
-                <li class="nav-item">
-                    <button class="btn my-2 my-sm-0" ><%=link_to "Browse Jobs", jobs_path %></button>
-                    <button class="btn  my-2 my-sm-0" ><%= link_to 'User Profile', current_worker %></button>
-                    <button class="btn  my-2 my-sm-0" ><%= link_to 'Edit Profile', edit_worker_registration_path %></button>
-                </li>
-                <% end %>
-                <li class="nav-item">
-                <button class="btn  my-2 my-sm-0" ><%= link_to 'Log out', destroy_customer_session_path, method: :delete %></button>
-                    
-                </li>
-            <% end %>
-            </ul>
-        </div>
-    </nav>
-    -->
