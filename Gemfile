@@ -80,3 +80,4 @@ gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 gem 'stripe'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+gem 'gravatar_image_tag'
