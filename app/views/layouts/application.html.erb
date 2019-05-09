@@ -27,12 +27,6 @@
                         <a class="nav-link" >Hi,<%= current_customer.username %> ! you logged in as Customer.</a>
                     </li>
                     
-                    
-                    <li class="nav-item-active">
-                    <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
                     <li class="nav-item">
                     <a class="nav-link" ><%=link_to "Browse Jobs", jobs_path %></a>
                     </li>
@@ -50,13 +44,6 @@
 
                         <a class="nav-link" >Hi,<%= current_worker.username %> ! you logged in as Worker.</a>
 
-                    </li>
-                    
-                    
-                    <li class="nav-item-active">
-                    <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" ><%=link_to "Browse Jobs", jobs_path %></a>
