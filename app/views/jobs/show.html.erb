@@ -26,15 +26,6 @@
   <p>Job not accepted</p>
 <% end %>
 
-
-
-
-
-
-<% if customer_signed_in?%>
-  <%= link_to 'Delete', show_job_path(@job), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
 <%= link_to "Back", :back %>
 
 <% if worker_signed_in? && !@job.accepted %>
