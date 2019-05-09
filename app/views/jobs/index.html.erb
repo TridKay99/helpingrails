@@ -8,9 +8,13 @@
   <% end %>
     <% @jobs.where(accepted: false).each do |job| %>
       <li>
-        <td><%= job.title %></td>
-        <td><%= job.description %></td>
-        <td><%= job.price %></td>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm"><%= job.title %></div>
+          <div class="col-sm"><%= job.description %></div>
+          <div class="col-sm"><%= job.price %></div>
+        </div>
+      </div>
         <td><%= link_to 'Show', show_job_path(job) %></td>
       </li>
     <% end %>
