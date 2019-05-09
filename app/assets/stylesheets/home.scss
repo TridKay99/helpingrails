@@ -14,10 +14,10 @@
   
 // }
 
-p {
-  padding: 0;
-  margin: 0 0 30px 0;
-}
+// p {
+//   padding: 0;
+//   margin: 0 0 30px 0;
+// }
 
 // h1,
 // h2,
@@ -37,29 +37,23 @@ p {
 # Header
 --------------------------------------------------------------*/
 
-.navbar {
-  height: 80px;
-  padding: 25px 0;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  transition: all 0.5s;
-  z-index: 997;
-}
-
-// #header.header-scrolled,
-// #header.header-fixed {
-//   background: rgba(6, 12, 34, 0.98);
-//   height: 70px;
-//   padding: 15px 0;
+// .navbar {
+//   height: 80px;
+//   padding: 25px 0;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   right: 0;
 //   transition: all 0.5s;
+//   z-index: 997;
+//   color: rgb(0, 0, 0)
 // }
+
 
 .navbar-brand1 img {
   padding: 0;
   margin: 0;
-  max-height: 40px;
+  max-height: 50px;
 
 }
 
