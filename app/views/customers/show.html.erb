@@ -21,7 +21,6 @@
   <h4>Reviews</h4>
     <%= render "customer_reviews/customer-review" %>
   </div>
-    <li><p>Leave a review for <%= @customer.username %></li></p>
 
     <li><%= link_to 'Leave review for', new_customer_review_path({:customer =>@customer}) %></li>
 
