@@ -1,0 +1,11 @@
+<% unless @worker.worker_reviews.empty? %>
+    
+    <% @worker.worker_reviews.each do | review |%>
+      <h5>Title: <%= review.content%> </h5>
+      <h6>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></h6>
+      <%# <p><%= customerreview.review </p> %>
+      
+      <hr>
+    <% end %>
+  
+  <% end %>

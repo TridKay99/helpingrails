@@ -50,7 +50,7 @@ puts 'Creating a worker user'
   #   worker.worker_reviews.create({content: Faker::Artist.name, description: Faker::Restaurant.review}) 
   # end
 end
-puts "customer user done"
+puts "worker user done"
 
 
 puts "Seeding Over"
