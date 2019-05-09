@@ -11,9 +11,9 @@
   
   
   <%# <%= render "layouts/shared/stripe_form" %>
-  
-    <%= link_to "edit", edit_customer_path(@customer) %> 
-    <%= link_to "delete",customer_path(@customer), method: :delete %>
+    <li><%= link_to 'Add new job!', new_job_path %></li>
+    <li><%= link_to "Edit", edit_customer_path(@customer) %></li>
+    <li><%= link_to "Delete User",customer_path(@customer), method: :delete %></li>
   
   <hr>
 </div>
@@ -21,8 +21,9 @@
   <h4>Reviews</h4>
     <%= render "customer_reviews/customer-review" %>
   </div>
-    <%= link_to 'leave review', new_customer_review_path({:customer =>@customer}) %>
-  <%= link_to 'Add new job!', new_job_path %>
+    <li><p>Leave a review for <%= @customer.username %></li></p>
+
+    <li><%= link_to 'Leave review for', new_customer_review_path({:customer =>@customer}) %></li>
 
 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
@@ -43,6 +44,7 @@
             <div class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= job.title%></h5>
+                  <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                   
                     <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
