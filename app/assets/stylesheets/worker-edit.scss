@@ -13,6 +13,35 @@
 	background-size:cover;
 	background-position:center;
 	position:relative;
+}
+
+#worker_firstname{
+  width: 100%
+}
+
+#worker_lastname{
+  width: 100%
+}
+
+#worker_username {
+  width: 100%;
+}
+
+#worker_password{
+  width: 100%
+}
+
+#worker_password_confirmation{
+  width: 100%
+}
+
+#worker_current_password{
+  width: 100%
+}
+
+.login-form-btn{
+  align-items: center;
+}
 
 .white-panel a {
 	color: black;
@@ -209,5 +238,4 @@
     visibility: visible;
     opacity: 1;
     }
-}
 }
