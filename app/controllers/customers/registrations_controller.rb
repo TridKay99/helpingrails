@@ -48,10 +48,24 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:username, :password_confirmation])
+  # end
+
+#   def configure_account_update_params
+#     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :password_confirmation) }
+#  end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
+    current_customer_id = current_customer.id
+    customer_path(current_customer_id)
+  end
+
+  def after_update_path_for(resource)
     current_customer_id = current_customer.id
     customer_path(current_customer_id)
   end
