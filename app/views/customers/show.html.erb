@@ -2,7 +2,7 @@
   <% if @customer.avatar.attached? %>
       <%= image_tag @customer.avatar.service_url, class: "rounded-circle"%>
     <%else%>
-      <%= image_tag "avatar/#{rand(22)}.jpg", height: 150, width:150, class: "rounded-circle"%>
+      <img src="<%= Customer.generate_random_images %>" class="rounded-circle", height="100" width="100">
     <%end%>
 
   <h1><%= @customer.username%></h1>
