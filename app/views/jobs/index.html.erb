@@ -1,24 +1,14 @@
-<div class="job-index">
-  <h1 class="title">Job Listing!</h1>
 
-    
-
-  <% if customer_signed_in? %>
-    <%= link_to 'Add new job!', new_job_path %>
-  <% end %>
+<div class="index_jobs_container">
     <% @jobs.where(accepted: false).each do |job| %>
-      <li>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm"><%= job.title %></div>
-          <div class="col-sm"><%= job.description %></div>
-          <div class="col-sm"><%= job.price %></div>
-          <td><%= link_to 'Show', show_job_path(job) %></td>
-        </div>
+      <div class="jobs_index">
+        <br>
+          <h5 class="index_job_title"><%= job.title %></h5>
+          <h5 class="index_job_price"><%= job.price %></h5>
+          <%= link_to 'Show', show_job_path(job) %>
       </div>
       </li>
     <% end %>
 </div>
-
 
 
