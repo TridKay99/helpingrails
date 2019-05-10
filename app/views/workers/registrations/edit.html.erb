@@ -5,6 +5,24 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <div class= 'row'>
+      <div class= 'col-sm-4'>
+        <% if @worker.avatar.attached? %>
+          <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
+        <%else%>
+          <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+        <%end%>
+      </div>
+      <div class= 'col-sm-8'>
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+  </div>
+  <br />
+  
+  
+  
+  <div class="field">
     <%= f.label :firstname %><br />
     <%= f.text_field :firstname, placeholder: "First Name" %>
   </div>
