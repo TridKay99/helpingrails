@@ -1,204 +1,88 @@
 
-<h1><%= @worker.username %></h1>
-  <h4>Name</h4>
-  <p><%= @worker.firstname %><%= @worker.lastname %></p>
-  <h4>Email</h4>
-  <p><%= @worker.email %></p>
-  <h4>About Me</h4>
-  <%= @worker.description %>
-  <h4>Experience</h4>
-  <%= @worker.experience %>
-
-
-<li>
-<%= link_to "Back", :back %>
-</li>
-<div>
-  <h4>Reviews</h4>
-  <%= render "worker_reviews/worker-review" %>
-  </div>
-
-<%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>
-
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
-
-    
-
-<div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <% @worker.jobs.each do | job | %>
-        <div class="list-group">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= job.title%></h5>
-                 <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
-                </div>
-              </div>
-              <p class="mb-1"><%= job.description%></p>
-              
-            </div>
-        </div>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-  <!--
-  
-  <div class="container worker-profile">
-  
-    <div class="row">
-        <div class="col-sm-4 left-div" style="background-color:yellow;">
-            <%= image_tag  'av1.png' %>
-            <h1><%= @worker.username %></h1>
-            <h4>Name</h4>
-            <p class="left-text"><%= @worker.firstname %><%= @worker.lastname %></p>
-            <h4>Email</h4>
-            <p class="left-text"><%= @worker.email %></p>
-            <h4>About Me</h4>
-            <%= @worker.description %>
-            <h4>Experience</h4>
-            <p class="left-text"><%= @worker.experience %></p>
-
-
-            <li>
-            <%= link_to "Back", :back %>
-            </li>
-        
-        </div>
-        <div class="col-sm-8 right-div" style="background-color:orange;">
-        
-            <div class="col-sm-12 top-right-div"  style="background-color:yellow;">
-            <%= image_tag  '4.jpg' %>
-            </div>
-            <div class="col-sm-12 bottom-right-div" style="background-color:orange;">
-                <h4>Reviews</h4>
-                <%= render "worker_reviews/worker-review" %>
-
-           <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>
-            
-            
-            
-            
-            
-            </div>
-        </div>
-    </div>
-  </div>
--->
 
 
 <div class="container register">
-                <div class="row">
-                    <div class="col-md-3 register-left">
-                        <% if @worker.avatar.attached? %>
-                            <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
-                        <%else%>
-                            <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
-                        <%end%>
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <% if @worker.avatar.attached? %>
+                <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
+            <%else%>
+                <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+            <%end%>
 
-                        <h1><%= @worker.username %></h1>
-                        <h5>Name</h5>
-                        <p class="left-text"><%= @worker.firstname %><%= @worker.lastname %></p>
-                        <h5>Email</h5>
-                        <p class="left-text"><%= @worker.email %></p>
-                       
-                        <a tabindex="0" class="btn btn-sm" role="button"
-                        data-toggle="popover" data-trigger="focus"
-                        data-content="<%= @data_value1%>">
-                        <h5>About Me</h5>
-                        </a>              
-                                                
-                        
-                        <a tabindex="0" class="btn btn-sm" role="button"
-                        data-toggle="popover" data-trigger="focus"
-                        data-content="<%= @data_value2%>">
-                        <h5>Experience</h5>
-                        </a>
-                        <br/>  
-                        
-                        
-                        <%= link_to 'Edit Profile', edit_worker_registration_path %>
-                        <input type="submit" name="" value="Login"/><br/>
-                    </div>
-                    <div class="col-md-9 register-right">
-                        <h4>Reviews</h4>
-                        <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>                        
-                        <div class="list-group review" style="overflow-y: scroll; height:50%;">
-                            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                               <% @worker.jobs.each do | job | %>
-                                <%if job.accepted?%>
-                                    <div class="d-flex w-100 justify-content-between"> 
-                                        <h5 class="mb-2"><%= job.title%></h5>
-                                        <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
+            <h1><%= @worker.username %></h1>
+            <h5>Name</h5>
+            <p class="left-text"><%= @worker.firstname %><%= @worker.lastname %></p>
+            <h5>Email</h5>
+            <p class="left-text"><%= @worker.email %></p>
+            
+            <a tabindex="0" class="btn btn-sm" role="button"
+            data-toggle="popover" data-trigger="focus"
+            data-content="<%= @data_value1%>">
+            <h5>About Me</h5>
+            </a>              
+                                    
+            
+            <a tabindex="0" class="btn btn-sm" role="button"
+            data-toggle="popover" data-trigger="focus"
+            data-content="<%= @data_value2%>">
+            <h5>Experience</h5>
+            </a>
+            <br/>  
+            
+            
+            <%= link_to 'Edit Profile', edit_worker_registration_path %>
+            <input type="submit" name="" value="Edit Profile"/><br/>
+        </div>
+        <div class="col-md-9 register-right">
+            <h4>Reviews</h4>
+            <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>                        
+            <div class="list-group review" style="overflow-y: scroll; height:50%;">
+                <%= render "worker_reviews/worker-review" %>  
+            </div>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
+
+            <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group">
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <% @worker.jobs.each do | job | %>
+                                        <%if job.accepted?%>
+                                            
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-2"><%= job.title%></h5>
+                                            <small>Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></small>
+                                        </div>
+                                        <h6> <%= job.description%> </h6>
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                                         </div>
-                                    </div>
-                                    <p class="mb-1"><%= job.description%></p>
-                                <%else%>
-                                    <h4>Thereis no Accepted job</h4>
-                                <%end%>
-                                <%end%>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
-
-                        <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                
-                                    <% @worker.jobs.each do | job | %>
-                                    <%if job.accepted?%>
-                                    <div class="list-group">
-                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1"><%= job.title%></h5>
-                                            <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
-                                    </div>
-                                    </div>
-                                    <p class="mb-1"><%= job.description%></p>
-                                    
-                                    </div>
+                                        <p class="mb-1">Description:<%= job.description%></p>
+                                        
+                                        <%else%>
+                                        <h2>"Thereis no Accepted job"</h2>
+                                        
+                                        <%end%>
+                                    <%end%>
                                 </div>
-                                <%else%>
-                                    <h4>Thereis no Accepted job</h4>
-                                <% end %>
-
-                                <%end%>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
-
                     </div>
                 </div>
+            </div>
+
+        </div>
+    </div>
 </div>
