@@ -10,10 +10,6 @@
           <small>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></small>
       </div>
       <h6>Review: <%= review.description%> </h6>
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
-      </div>
-      <small><%= job.description%></small>
       <%end%>
     <%end%>
 </div>

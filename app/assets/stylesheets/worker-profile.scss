@@ -1,10 +1,13 @@
+.mahdi{
+  background-color: black;
+  height:100vh;
 .register{
-  background: -webkit-linear-gradient(left, #40af319d, #00ff4c67),url("https://s3-ap-southeast-2.amazonaws.com/helping-hand-project/35.jpg") ;
+  background: -webkit-linear-gradient(left, #0000009d, #0000008c),url("https://s3-ap-southeast-2.amazonaws.com/helping-hand-project/35.jpg") ;
   margin-top: 3%;
-  padding: 3%;
-  .body{
-    background: black
-  }
+  padding: 3%;}
+  // .body{
+  //   background: black
+  // }
   .btn-sm{
     background: transparent;
     text-decoration: none;
@@ -34,11 +37,24 @@
   background: #f8f9fa;
   border-top-left-radius: 10% 50%;
   border-bottom-left-radius: 10% 50%;
+  background: -webkit-linear-gradient(left, #40af31, #00ff4ce8)
+}
+
+.modal-header{
+  background: #40af31;
+}
+#show-botton{
+  display: inline-block;
+  float: right;
+  
+}
+#show-botton a{
+  color: #40af31;
 }
 .register-left img{
-  margin-top: 15%;
+  margin-top: 0;
   margin-bottom: 5%;
-  width: 40%;
+  width: 50%;
   -webkit-animation: mover 2s infinite  alternate;
   animation: mover 1s infinite  alternate;
 }
@@ -60,7 +76,6 @@
   display: flex;
   flex-direction: column;
   padding: 50px;
-
 
 
 

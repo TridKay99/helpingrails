@@ -16,6 +16,7 @@ class CustomerReviewsController < ApplicationController
     @customerreview = CustomerReview.find(params[:id])
     @customer = @customerreview.customer
     @customerreview.destroy
+    flash[:notice] = "Review  for'#{@customerreview.customer.username}' destroyed successfully."
     redirect_to customer_path(@customer)
   end
 

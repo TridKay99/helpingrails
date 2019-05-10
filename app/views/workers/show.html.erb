@@ -1,5 +1,6 @@
 
 
+<div class ="mahdi">
 
 <div class="container register">
     <div class="row">
@@ -64,7 +65,7 @@
                                             <small>Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></small>
                                         </div>
                                         <h6> <%= job.description%> </h6>
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <div class="btn-group btn-group-sm" id= "show-botton" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                                         </div>
                                         <p class="mb-1">Description:<%= job.description%></p>
@@ -86,4 +87,5 @@
 
         </div>
     </div>
+</div>
 </div>

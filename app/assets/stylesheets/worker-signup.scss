@@ -9,16 +9,10 @@
     padding: 0px; 
   
     box-sizing: border-box;
-  .body{
   
-  
-    height: 100vh;
-    font-family: Poppins-Regular, sans-serif;
-  
-  }
   /*---------------------------------------------*/
   a {
-    font-family: Poppins-Regular;
+    // font-family: Poppins-Regular;
     height: 100%;
     font-size: 14px;
     line-height: 1.7;
@@ -44,7 +38,7 @@
   }
   
   p {
-    font-family: Poppins-Regular;
+    // font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
@@ -119,38 +113,10 @@
   }
   
   
-  /*//////////////////////////////////////////////////////////////////
-  [ Utility ]*/
-  .txt1 {
-    font-family: Poppins-Regular;
-    font-size: 15px;
-    color: #999999;
-    line-height: 1.4;
-  }
-  
-  .txt2 {
-    font-family: Poppins-Regular;
-    font-size: 15px;
-    color: #666666;
-    line-height: 1.4;
-  }
-  
-  .txt3 {
-    font-family: Poppins-Regular;
-    font-size: 16px;
-    color: #666666;
-    line-height: 1.4;
-  }
-  
-  .hov1:hover {
-    color: #c87ef0;
-  }
-  
-  
   
   /*//////////////////////////////////////////////////////////////////
   [ login ]*/
-  .limiter {
+  // .limiter {
     width: 100%;
     height:100vh;
     margin: 0 auto;
@@ -159,7 +125,7 @@
     align-items: stretch;
     flex-wrap: wrap;
   
-  }
+  // }
   
   // .con-login100 {
   //   width: 100%;  
@@ -212,16 +178,16 @@
   /*==================================================================
   [ Form ]*/
   
-  // .login100-form {
-  //   width: 100%;
-  //   display: -webkit-box;
-  //   display: -webkit-flex;
-  //   display: -moz-box;
-  //   display: -ms-flexbox;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: space-between;
-  // }
+  .login100-form {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   
   .login100-form-title {
     display: block;
@@ -471,6 +437,11 @@
     .wrap-login100 {
       padding-left: 15px;
       padding-right: 15px;
+      width: 80%;
+    }
+    .login100-more{
+      width: 20%;
+
     }
   }
   }

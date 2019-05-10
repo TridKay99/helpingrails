@@ -16,12 +16,14 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
     @customer.save
+    flash[:notice] = "Customer created successfully."
     redirect_to root_path
   end
   
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
+    flash[:notice] = "customer '#{@customer.username}' deleted successfully."
     redirect_to customer_path
   end
 
