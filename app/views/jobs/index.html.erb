@@ -13,9 +13,9 @@
           <div class="col-sm"><%= job.title %></div>
           <div class="col-sm"><%= job.description %></div>
           <div class="col-sm"><%= job.price %></div>
+          <td><%= link_to 'Show', show_job_path(job) %></td>
         </div>
       </div>
-        <td><%= link_to 'Show', show_job_path(job) %></td>
       </li>
     <% end %>
 </div>
