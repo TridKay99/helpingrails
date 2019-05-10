@@ -1,9 +1,11 @@
-
+<div class="new_job_container">
   <h1>Add new job</h1>
 
 
   <% if customer_signed_in? %>
     <%= form_for @job, url: jobs_path, :html => { :multipart => true } do |f| %>
+
+    <div class="">
       
       <div class="form-group">
         <%= f.label(:title, :class => 'col-sm-2 control-lable')%>
