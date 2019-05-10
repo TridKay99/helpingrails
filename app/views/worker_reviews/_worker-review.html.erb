@@ -1,14 +1,19 @@
 
 
-<% unless @worker.worker_reviews.empty? %>
-    
-    <% @worker.worker_reviews.each do | review |%>
-      <h5>Title: <%= review.content%> </h5>
-      <h7>Review: <%= review.description%> </h7><br>
-      <h7>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></h7>
-      <%# <p><%= customerreview.review </p> %>
-      
-      <hr>
-    <% end %>
-  
-  <% end %>
+<div class="list-group-item list-group-item-action flex-column align-items-start">
+  <% @worker.worker_reviews.each do | review | %>
+      <% if @worker.worker_reviews.empty? %>
+        <h2>"There is no reviews for you"</h2>
+      <%else%>
+      <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-2">Title: <%= review.content%></h5>
+          <small>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></small>
+      </div>
+      <h6>Review: <%= review.description%> </h6>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
+      </div>
+      <small><%= job.description%></small>
+      <%end%>
+    <%end%>
+</div>
