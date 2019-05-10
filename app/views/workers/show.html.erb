@@ -7,7 +7,7 @@
             <% if @worker.avatar.attached? %>
                 <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
             <%else%>
-                <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+                <img src="<%= Worker.generate_random_images %>" class="rounded-circle", height="100" width="100">
             <%end%>
 
             <h1><%= @worker.username %></h1>
@@ -30,9 +30,10 @@
             </a>
             <br/>  
             
-            
-            <%= link_to 'Edit Profile', edit_worker_registration_path %>
-            <input type="submit" name="" value="Edit Profile"/><br/>
+            <div class="link">
+            <%= link_to 'Edit Profile', edit_worker_registration_path%>
+            </div>
+        
         </div>
         <div class="col-md-9 register-right">
             <h4>Reviews</h4>
