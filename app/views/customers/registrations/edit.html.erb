@@ -1,8 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="customers-sessions-edit">
+  <div class="limiter">
+    <div class="wrap-login100">
+      <span class="login100-form-title p-b-59">
+      <h2>Edit Profile</h2>
+      </span>
 
+<<<<<<< HEAD
   <div class="field">
     <div class= 'row'>
       <div class= 'col-sm-4'>
@@ -18,61 +22,89 @@
     </div>
   </div>
   <br />
+=======
+>>>>>>> origin
 
-  <div class="field">
-    <%= f.text_field :firstname, placeholder: "First Name" %>
-  </div>
-  <br />
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.text_field :lastname, placeholder: "Last Name" %>
-  </div>
-  <br />
+           <div class="wrap-input100 validate-input" data-validate="Name is required">
+              <div class= 'row'>
+                <div class= 'col-sm-4'>
+                  <% if @customer.avatar.attached? %>
+                    <%= image_tag @customer.avatar.service_url, class: "rounded-circle"%>
+                  <%else%>
+                    <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+                  <%end%>
+                </div>
+                <div class= 'col-sm-8'>
+                  <%= f.file_field :avatar %>
+            
+                </div>
+             
+             </div>
+          <br />
+      
+      
+      
+      
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :First_name %><br>
+            <%= f.text_field :firstname, placeholder: "First Name" %>
+            <span  class="focus-input100"></span>
+          </div>
+          <br />
 
-  <div class="field">
-    <%= f.text_field :username, placeholder: "Username" %>
-  </div>
-  <br />
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :Last_name %><br>
+            <%= f.text_field :lastname, placeholder: "Last Name" %>
+          </div>
+          <br />
 
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <br />
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <%= f.label :Username %><br>
+            <%= f.text_field :username, placeholder: "Username" %>
+          </div>
+          <br />
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          <div class="wrap-input100 validate-input">
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          </div>
+          <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-  <br />
+          <div class="wrap-input100 validate-input">
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <em><%= @minimum_password_length %> characters minimum</em><br>
+            <%= f.password_field :password, placeholder: "New password" %>
+            <% if @minimum_password_length %>
+              <br />
+            <% end %>
+          </div>
+          <br />
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, placeholder: "new-password" %>
-  </div>
-  <br />
+          <div class="wrap-input100 validate-input">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, placeholder: "Repeat new password" %>
+          </div>
+          <br />
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, placeholder: "current-password" %>
-  </div>
-  <br />
+          <div class="wrap-input100 validate-input">
+            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, placeholder: "Current password" %>
+          </div>
+          <br />
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+          <div class="con-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn">
+                <%= f.submit "Update" %>
+              </div>
+            <% end %>
+            </div>
+          <p><%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          </div>
+          </div>
+        </div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-<%= render "customers/shared/links" %>
