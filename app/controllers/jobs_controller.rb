@@ -47,7 +47,7 @@ class JobsController < ApplicationController
     @job.worker_id = @worker.id
     @job.save
     @worker.jobs << @job
-    
+    flash[:notice] = "job is accepted by '#{@job.worker.username}' ."
     redirect_to show_job_path
   end
 
@@ -56,6 +56,7 @@ class JobsController < ApplicationController
     customer = @job.customer
     @job.destroy
     redirect_to customer_path(customer)
+    flash[:notice] = "'#{@job.title}' is deleted by '#{@job.customer.username}' ."
   end
 
 

@@ -17,6 +17,7 @@ class WorkerReviewsController < ApplicationController
     @workerreview = WorkerReview.find(params[:id])
     @worker = @workerreview.worker
     @workerreview.destroy
+    flash[:notice] = "Review  for'#{@workerreview.worker.username}' destroyed successfully."
     redirect_to worker_path(@worker)
   end
 
