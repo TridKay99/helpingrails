@@ -1,7 +1,17 @@
 .register{
-  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  background: -webkit-linear-gradient(left, #40af319d, #00ff4c67),url("5.jpg") ;
   margin-top: 3%;
   padding: 3%;
+  .body{
+    background: black
+  }
+  .btn-sm{
+    background: transparent;
+    text-decoration: none;
+    color: #fff !important;
+    font-weight: 700;
+    
+  }
 
 .register-left{
   text-align: center;
@@ -45,48 +55,59 @@
   padding: 0;
   margin-top: 0;
 }
-.register .register-form{
-  padding: 10%;
-  margin-top: 10%;
+
+.register-right{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+
+
+
+
+
 }
-.btnRegister{
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-}
-.register .nav-tabs{
-  margin-top: 3%;
-  border: none;
-  background: #0062cc;
-  border-radius: 1.5rem;
-  width: 28%;
-  float: right;
-}
-.register .nav-tabs .nav-link{
-  padding: 2%;
-  height: 34px;
-  font-weight: 600;
-  color: #fff;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-.register .nav-tabs .nav-link:hover{
-  border: none;
-}
-.register .nav-tabs .nav-link.active{
-  width: 100px;
-  color: #0062cc;
-  border: 2px solid #0062cc;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
+// .register .register-form{
+//   padding: 10%;
+//   margin-top: 10%;
+// }
+// .btnRegister{
+//   float: right;
+//   margin-top: 10%;
+//   border: none;
+//   border-radius: 1.5rem;
+//   padding: 2%;
+//   background: #0062cc;
+//   color: #fff;
+//   font-weight: 600;
+//   width: 50%;
+//   cursor: pointer;
+// }
+// .register .nav-tabs{
+//   margin-top: 3%;
+//   border: none;
+//   background: #0062cc;
+//   border-radius: 1.5rem;
+//   width: 28%;
+//   float: right;
+// }
+// .register .nav-tabs .nav-link{
+//   padding: 2%;
+//   height: 34px;
+//   font-weight: 600;
+//   color: #fff;
+//   border-top-right-radius: 1.5rem;
+//   border-bottom-right-radius: 1.5rem;
+// }
+// .register .nav-tabs .nav-link:hover{
+//   border: none;
+// }
+// .register .nav-tabs .nav-link.active{
+//   width: 100px;
+//   color: #0062cc;
+//   border: 2px solid #0062cc;
+//   border-top-left-radius: 1.5rem;
+//   border-bottom-left-radius: 1.5rem;
+// }
 .register-heading{
   text-align: center;
   margin-top: 8%;

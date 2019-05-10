@@ -1,4 +1,4 @@
-<!--
+
 <h1><%= @worker.username %></h1>
   <h4>Name</h4>
   <p><%= @worker.firstname %><%= @worker.lastname %></p>
@@ -18,11 +18,11 @@
   <%= render "worker_reviews/worker-review" %>
   </div>
 
+<%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>
 
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
 
-    <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>
-
+    
 
 <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -56,7 +56,7 @@
     </div>
   </div>
 </div>
--->
+
   
   <!--
   
@@ -117,137 +117,82 @@
                         <p class="left-text"><%= @worker.firstname %><%= @worker.lastname %></p>
                         <h5>Email</h5>
                         <p class="left-text"><%= @worker.email %></p>
+                       
+                        <a tabindex="0" class="btn btn-sm" role="button"
+                        data-toggle="popover" data-trigger="focus"
+                        data-content="<%= @data_value1%>">
+                        <h5>About Me</h5>
+                        </a>              
+                                                
                         
-                        <h5>
-                            <a class="about-me" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                About Me
-                            </a>
-                           
-                        </h5>
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <%= @worker.description %>
-                            </div>
-                        </div>
+                        <a tabindex="0" class="btn btn-sm" role="button"
+                        data-toggle="popover" data-trigger="focus"
+                        data-content="<%= @data_value2%>">
+                        <h5>Experience</h5>
+                        </a>
+                        <br/>  
                         
-                        <h5>
-                            <a class="about-me" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Experience
-                            </a>
-                           
-                        </h5>
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <%= @worker.experience %>
-                            </div>
-                        </div>
+                        
                         <%= link_to 'Edit Profile', edit_worker_registration_path %>
                         <input type="submit" name="" value="Login"/><br/>
                     </div>
                     <div class="col-md-9 register-right">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Apply as a Employee</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
+                        <h4>Reviews</h4>
+                        <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>                        
+                        <div class="list-group review" style="overflow-y: scroll; height:50%;">
+                            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                               <% @worker.jobs.each do | job | %>
+                                <%if jobs.accepted?%>
+                                    <div class="d-flex w-100 justify-content-between"> 
+                                        <h5 class="mb-2"><%= job.title%></h5>
+                                        <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
-                                </div>
+                                    <p class="mb-1"><%= job.description%></p>
+                                <%else%>
+                                    <h4>Thereis no Accepted job</h4>
+                                <%end%>
+                                <%end%>
                             </div>
                         </div>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
+
+                        <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <% @worker.jobs.each do | job | %>
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1"><%= job.title%></h5>
+                                        <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
+                                        </div>
+                                    </div>
+                                    <p class="mb-1"><%= job.description%></p>
+                                    
+                                    </div>
+                                </div>
+                                <% end %>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
                     </div>
                 </div>
-
-            </div>
+</div>

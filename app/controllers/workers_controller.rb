@@ -5,6 +5,21 @@ class WorkersController < ApplicationController
 
   def show
     @worker = Worker.find(params[:id])
+    
+    if @worker.description?
+      @data_value1 = @worker.description
+    else
+      @data_value1 = "There is nothing about me to show"
+    end
+
+    if @worker.experience?
+      @data_value2 = @worker.experience
+    else
+      @data_value2 = "There is nothing  to show"
+    end
+
+
+
   end
 
   def edit
