@@ -3,8 +3,8 @@
       <div class="jobs_index">
         <br>
           <h5 class="index_job_title"><%= job.title %></h5>
-          <h5 class="index_job_price"><%= job.price %></h5>
-          <%= link_to 'Show', show_job_path(job) %>
+          <h5 class="index_job_price">$<%= job.price %></h5>
+          <h6><%= link_to 'Show', show_job_path(job) %></h6>
       </div>
       </li>
     <% end %>
