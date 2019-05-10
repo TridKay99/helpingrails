@@ -8,6 +8,22 @@
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
+      
+          <div class="field">
+            <div class= 'row'>
+              <div class= 'col-sm-4'>
+                <% if @worker.avatar.attached? %>
+                  <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
+                <%else%>
+                  <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+                <%end%>
+              </div>
+              <div class= 'col-sm-8'>
+                <%= f.file_field :avatar %>
+              </div>
+            </div>
+          </div>
+          <br />
 
           <div class="wrap-input100 validate-input" data-validate="Name is required">
             <%= f.label :First_name %><br>
