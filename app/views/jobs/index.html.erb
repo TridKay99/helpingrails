@@ -4,7 +4,9 @@
         <br>
           <h5 class="index_job_title"><%= job.title %></h5>
           <h5 class="index_job_price">$<%= job.price %></h5>
+          <div class="end">
           <h6><%= link_to 'Show', show_job_path(job) %></h6>
+          </div>
       </div>
       </li>
     <% end %>
