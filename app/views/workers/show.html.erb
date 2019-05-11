@@ -1,6 +1,6 @@
 
 
-<div class ="mahdi">
+<div class ="worker-profile">
 
 <div class="container register">
     <div class="row">
@@ -20,14 +20,14 @@
             <a tabindex="0" class="btn btn-sm" role="button"
             data-toggle="popover" data-trigger="focus"
             data-content="<%= @data_value1%>">
-            <h5>About Me</h5>
+            <h5 class = "about-me">About Me</h5>
             </a>              
                                     
             
             <a tabindex="0" class="btn btn-sm" role="button"
             data-toggle="popover" data-trigger="focus"
             data-content="<%= @data_value2%>">
-            <h5>Experience</h5>
+            <h5 class="exp">Experience</h5>
             </a>
             <br/>  
             
@@ -38,13 +38,15 @@
         </div>
         <div class="col-md-9 register-right">
             <h4>Reviews</h4>
-            <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %>                        
+            <div class="link1">
+                <%= link_to 'leave review', new_worker_review_path({:worker =>@worker}) %> 
+            </div>
             <div class="list-group review" style="overflow-y: scroll; height:50%;">
                 <%= render "worker_reviews/worker-review" %>  
             </div>
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
-
+            <div class="link2">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Accepted Jobs</button>
+            </div>
             <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
@@ -79,7 +81,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary1" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

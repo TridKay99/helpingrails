@@ -1,13 +1,19 @@
 
 
-<div class="list-group-item list-group-item-action flex-column align-items-start">
+<div class="list-group-item list-group-item-action1 flex-column align-items-start">
   <% @worker.worker_reviews.each do | review | %>
       <% if @worker.worker_reviews.empty? %>
-        <h2>"There is no reviews for you"</h2>
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-2">There is no review for you!</h5>
+      </div>
       <%else%>
       <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-2">Title: <%= review.content%></h5>
           <small>Posted on: <%= review.created_at.strftime("%Y-%m-%d") %></small>
+      </div>
+      <div class="btn-group btn-group-sm" id= "show-botton" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary"><%= link_to "Edit",edit_worker_review_path(review) %></button>
+          <button type="button" class="btn btn-secondary"><%= link_to "Delete",worker_review_path(review),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
       </div>
       <h6>Review: <%= review.description%> </h6>
       <%end%>

@@ -12,7 +12,7 @@ class CustomerReviewsController < ApplicationController
     # binding.pry
   end
 
-  def delete
+  def destroy
     @customerreview = CustomerReview.find(params[:id])
     @customer = @customerreview.customer
     @customerreview.destroy
