@@ -1,75 +1,92 @@
-<div class="customer-profile">
-  <% if @customer.avatar.attached? %>
-      <%= image_tag @customer.avatar.service_url, class: "rounded-circle"%>
-    <%else%>
-      <img src="<%= Customer.generate_random_images %>" class="rounded-circle", height="100" width="100">
-    <%end%>
 
-  <h1><%= @customer.username%></h1>
-  <hr>
-  <h4>Name</h4>
-  <p><%= @customer.firstname %> <%= @customer.lastname %></p>
-  <h4>Email</h4>
-  <p><%= @customer.email %></p>
+<div class ="customer-profile">
 
- 
-
-  
-  
-  <%# <%= render "layouts/shared/stripe_form" %>
-    <li><%= link_to 'Add new job!', new_job_path %></li>
-    <li><%= link_to 'Edit Profile', edit_customer_registration_path %></li>
-    <li><%= link_to "Delete User",customer_path(@customer), method: :delete %></li>
-  
-  <hr>
-</div>
-<div>
-  <h4>Reviews</h4>
-    <%= render "customer_reviews/customer-review" %>
-  </div>
-
-  <li><%= link_to 'Leave review for', new_customer_review_path({:customer =>@customer}) %></li>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <% if @customer.avatar.attached? %>
+              <%= image_tag @customer.avatar.service_url, class: "rounded-circle"%>
+            <%else%>
+              <img src="<%= Customer.generate_random_images %>" class="rounded-circle", height="100" width="100">
+            <%end%>
+            
+            <h1><%= @customer.username%></h1>
+            <hr>
+            <h4>Name</h4>
+            <p class="left-text"><%= @customer.firstname %> <%= @customer.lastname %></p>
+            <h4>Email</h4>
+            <p class="left-text"><%= @customer.email %></p>
 
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
 
-
-<div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <% @customer.jobs.each do | job |%>
-        <div class="list-group">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= job.title%></h5>
-                  <h6 class="status">Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></h6>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                    <% if job.accepted == true %>
-                    <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
-                    <% end %>
-                    <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
-                    <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
-                    <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,
-              data: { confirm: 'Are you sure?' } %></button>
-                  
-                </div>
-              </div>
-              <p class="mb-1"><%= job.description%></p>
-              
+            
+            <div class="link">
+              <%= link_to 'Edit Profile', edit_customer_registration_path %>
+              <%= link_to "Delete User",customer_path(@customer), method: :delete %>
             </div>
+        
         </div>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+        <div class="col-md-9 register-right">
+            <h4>Reviews</h4>
+            <div class="link1">
+                <%= link_to 'Leave review', new_customer_review_path({:customer =>@customer}) %> 
+            </div>
+            <div class="list-group review">
+                <%= render "customer_reviews/customer-review" %>  
+            </div>
+            <div class="link2">
+              <div class="link3">  
+                <%= link_to 'Add new job!', new_job_path %>
+              </div>
+                <button type="button" class="btn btn-primary" ><%= link_to 'Add new job!', new_job_path %></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
+            </div>
+            <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenteredLabel">Your Jobs</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group">
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <% @customer.jobs.each do | job |%>
+                                        <%if job.nil?%>
+                                          <h2>"Thereis no job"</h2>
+                                        <%else%>
+                                          <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-2"><%= job.title%></h5>
+                                            <small>Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></small>
+                                          </div>
+                                          <%# <p class="mb-1">Description:<%= job.description</p> %>
+                                          <% if job.accepted == true %>
+                                            <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
+                                          <% end %>
+                                                            
+                                        
+                                          <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
+                                            <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
+                                            <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
+                    
+                                          </div>
+                                        
+                                        <%end%>
+                                    <%end%>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary1" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
+</div>
 </div>
