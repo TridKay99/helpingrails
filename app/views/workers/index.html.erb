@@ -1,8 +1,23 @@
-<h1>Available Workers</h1>
 
-<% @workers.each do |worker| %>
-  <li><%= worker.email %></li>
-  <li><%= worker.created_at%></li>
-  <li><%= link_to 'View Profile', show_worker_path(worker) %></li>
-<% end %>
  
+ <div class="worker-index-page">
+ <h1>Available Workers</h1>
+  <div class="workershelf">
+    <% @workers.each do |worker| %>
+      <div class="worker-card bg-light">
+        <div class="worker-description">
+          
+          <h4> Customer username: <%=worker.username %></h4>
+          <p> Last name: <%= worker.lastname %></p>
+          <p> created at: <%= worker.created_at %></p>
+        </div>
+        <div class="index-page-nav-links">
+            <button><%= link_to 'Show', show_worker_path(worker) %></button>
+          <%# <% if can? :delete, worker %> 
+            <button><%= link_to "delete", worker_path(worker), method: :delete %></button>
+          <%# <% end %> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

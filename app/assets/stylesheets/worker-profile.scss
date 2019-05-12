@@ -18,6 +18,14 @@
   color: #fff;
   margin-top: 0%;
   }
+
+  .register-left .link{
+    display:flex;
+    flex-direction: column;
+    margin-top: 5%;
+    justify-content: center;
+
+  }
   .register-left .link a{
     border: none;
     border-radius: 1.5rem;
@@ -26,7 +34,8 @@
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
+    margin-top: 4%;
+    margin-left: 15%;
     margin-bottom: 3%;
     cursor: pointer;
   }
