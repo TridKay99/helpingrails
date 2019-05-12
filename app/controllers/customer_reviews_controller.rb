@@ -5,13 +5,14 @@ class CustomerReviewsController < ApplicationController
   end
 
   def create
+
     @customer = Customer.find(params[:customer_review][:customer_id])
     @customerreview = @customer.customer_reviews.create(review_params)
     @customerreview.save
     redirect_to customer_path(@customer)
     # binding.pry
   end
-
+  # [:customer_review]
   def destroy
     @customerreview = CustomerReview.find(params[:id])
     @customer = @customerreview.customer

@@ -36,7 +36,7 @@
             </div>
             <div class="link2">
               <div class="link3">  
-                <%= link_to 'Add new job!', new_job_path %>
+                
               </div>
                 <button type="button" class="btn btn-primary" ><%= link_to 'Add new job!', new_job_path %></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
@@ -67,7 +67,7 @@
                                           <% end %>
                                                             
                                         
-                                          <div class="btn-group btn-group-sm">
+                                          <div class="btn-group btn-group-sm" id= "show-botton">
                                             <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
                                             <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
                                             <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
