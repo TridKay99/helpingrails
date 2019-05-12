@@ -13,7 +13,7 @@ class WorkerReviewsController < ApplicationController
     # binding.pry
   end
 
-  def delete
+  def destroy
     @workerreview = WorkerReview.find(params[:id])
     @worker = @workerreview.worker
     @workerreview.destroy

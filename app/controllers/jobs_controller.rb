@@ -34,7 +34,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @customer = Customer.all.find_by(id: params[:id])
-    raise
+  
     @job.customer_id=@customer.id
     if @job.update(job_params)
       redirect_to jobs_path

@@ -18,19 +18,21 @@
             <p class="left-text"><%= @customer.email %></p>
 
 
-
+          <% if customer_signed_in? %>
             
             <div class="link">
               <%= link_to 'Edit Profile', edit_customer_registration_path %>
               <%= link_to "Delete User",customer_path(@customer), method: :delete %>
             </div>
-        
+          <%end%>
         </div>
         <div class="col-md-9 register-right">
             <h4>Reviews</h4>
-            <div class="link1">
-                <%= link_to 'Leave review', new_customer_review_path({:customer =>@customer}) %> 
-            </div>
+            <% if worker_signed_in? %>
+              <div class="link1">
+                  <%= link_to 'Leave review', new_customer_review_path({:customer =>@customer}) %> 
+              </div>
+            <%end%>
             <div class="list-group review">
                 <%= render "customer_reviews/customer-review" %>  
             </div>
@@ -38,7 +40,9 @@
               <div class="link3">  
                 
               </div>
-                <button type="button" class="btn btn-primary" ><%= link_to 'Add new job!', new_job_path %></button>
+                <% if customer_signed_in? %>
+                  <button type="button" class="btn btn-primary" ><%= link_to 'Add new job!', new_job_path %></button>
+                <% end %>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Your Jobs</button>
             </div>
             <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
@@ -61,19 +65,20 @@
                                             <h5 class="mb-2"><%= job.title%></h5>
                                             <small>Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></small>
                                           </div>
-                                          <%# <p class="mb-1">Description:<%= job.description</p> %>
+                                          
+                                          
                                           <% if job.accepted == true %>
                                             <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
                                           <% end %>
-                                                            
+                                          <% if customer_signed_in? %>                   
                                         
-                                          <div class="btn-group btn-group-sm" id= "show-botton">
-                                            <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
-                                            <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
-                                            <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
-                    
-                                          </div>
-                                        
+                                            <div class="btn-group btn-group-sm" id= "show-botton">
+                                              <button type="button" class="btn btn-secondary"><%= link_to "Show", show_job_path(job) %></button>
+                                              <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
+                                              <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
+                      
+                                            </div>s
+                                          <% end %>
                                         <%end%>
                                     <%end%>
                                 </div>

@@ -1,79 +1,10 @@
-<!--
-<div class="show_job_container">
-  <div class="job_title">
-    <u><h2><%= @job.title %></h2></u>
-  </div>
-    <div class="job_bio">
-      <div class="job_description_title">
-        <h4>Description</h4>
-      </div>
-      <div class="job_description">
-        <p><%= @job.description %></p>
-      </div>
-      <div class="price_area">
-        <% if customer_signed_in? && @job.accepted == true %>
-          <%= render "layouts/shared/stripe_form" , job: @job%>
-        <% else %>
-        <div class="price_area_title">
-          <h4>Price</h4>
-        </div>
-        <div class="job_price">
-          <p>$<%= @job.price %><p>
-        <% end %>
-        </div>
-      </div>
-
-      <div class="job_owner_title">
-        <h4>Job posted by:</h4>
-      </div>
-      <div class="job_owner">
-        <p><%=link_to  @job.customer.username, customer_path(@job.customer) %></p>
-       
-      </div>
-
-      <div class="job_accepted_status">
-        <% if @job.accepted %>
-          <p>job accepted! by <%=link_to  @job.worker.username, worker_path(@job.worker) %></p>
-          <% if @job.worker.avatar.attached? %>
-              <%= image_tag @worker.avatar.variant(resize: "100x100").processed.service_url, class: "rounded-circle"%>
-              
-            <%else%>
-              <img src="<%= Worker.generate_random_images %>" class="rounded-circle", height="100" width="100">
-            <%end%>
-            <%= link_to 'Leave review for job poster', customer_path(@job.customer) %>
-            <%= link_to 'Leave review for job worker', worker_path(@job.worker) %>
-        
-        <% else %>
-          <p>Job not accepted</p>
-        <% end %><br/>
-
-        <% if worker_signed_in? && !@job.accepted %>
-          <%= link_to 'Accept job', show_job_path(@job, worker: current_worker.id),  method: :accept %>
-          
-        <% end %>
-      </div>
-            
-     <%= link_to "Back", :back %>
-  </div>
-
-  <div class="job_image">
-      <% if @job.uploaded_image.attached? %>
-       <%= image_tag @job.uploaded_image.variant(resize: "150x150").processed.service_url %>
-       
-      <% else %>
-       <p>No image for this job</p>
-      <% end %>
-  </div>
-</div>
--->
-
 
 
 <div class="job-show-page">
   <div class="container">
   <br/>
   
-   <%# <center>  %>
+  
     
       <div class="put-in" >
         
@@ -101,12 +32,11 @@
               <p>No image for this job</p>
             <% end %>
           </div>
+            <% if worker_signed_in? && @job.accepted %>
               <div class= "leave-review">
-                <% if @job.accepted %>
                   <%= link_to 'Leave review for job poster', customer_path(@job.customer) %>
-                <%end%>
               </div>
-        
+            <%end%>
         </div> 
         <div class= "col-md-6 right-entry" id="login">
           <div class="price">
@@ -130,9 +60,11 @@
               <%else%>
                   <img src="<%= Worker.generate_random_images %>" class="rounded-circle", height="100" width="100">
               <%end%>
+              <% if customer_signed_in?%>
                 <div class= "leave-review">
                   <%= link_to 'Leave review for job worker', worker_path(@job.worker) %>
                 </div>
+              <%end%>
             <% else %>
               <p>Job not accepted</p>
             <% end %><br/>
@@ -151,6 +83,6 @@
           </div>
        
       
-    <%# </center>> %>
+    
   </div>
 </div>

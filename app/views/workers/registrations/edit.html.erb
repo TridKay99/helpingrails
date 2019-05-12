@@ -13,7 +13,7 @@
                     <%= image_tag @worker.avatar.service_url, class: "rounded-circle"%>
                   <%else%>
                   <img src="<%= Worker.generate_random_images %>" class="rounded-circle", height="100" width="100">
-                    <%# <%= image_tag "avatar/#{rand(22)}.jpg", height: 100, width:100, class: "rounded-circle"%>
+                    
                   <%end%>
                 <div class="worker_avatar_btn">
                   <%= f.file_field :avatar %>
