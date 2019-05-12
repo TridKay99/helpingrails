@@ -1,3 +1,58 @@
 // Place all the styles related to the customer_reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new-review{
+  background:linear-gradient(-230deg, rgba(15, 15, 15, 0.575) 0%, rgba(27, 29, 27, 0.808)80%),url(https://wallpapertag.com/wallpaper/full/c/a/a/157415-simplistic-wallpapers-1920x1080-lockscreen.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  
+  .leave-review h1{
+    font-size: 40px;
+    // font-family: arabic typesetting;
+    
+    color:white;
+
+    
+    
+    }
+    #login{
+    background-color:rgba(13,13,13,0.2);
+    min-height:300px;
+    padding: 40px 80px 40px 80px;
+    box-shadow: -10px -10px 9px #33cc33;
+    
+    }
+    .user{
+    font-size: 29px;
+    
+  
+    
+    color: white;
+    float: left;
+    
+    }
+    
+    #text1{
+    
+      border-radius: 0;
+      height: 40px;
+    }
+    #text2{
+    
+      border-radius: 0;
+      height: 40px;
+    }
+    
+    .btn{
+      width: 50%;
+      float: left;
+      height: 40px;
+      font-size: 18px;
+    }
+    .back a{
+      color:white;
+      float:left;
+    }
+}

@@ -1,46 +1,38 @@
-<div class="limiter">
-      
-        <div class="wrap-login100"> 
-          <span class="login100-form-title p-b-59">
-						Leave A Review!
-					</span>
-          
 
-        
-          <%= form_for(@customerreview, url: customer_reviews_path, :action => "create") do |f| %>
+<div class="new-review">
+  <div class="container1">
+  <br/>
+  
+
+    <center> 
+      <h1 class="leave-review", style="color:white">Leave a Review</h1>  
+    
+      <br/>
+
+      
+      <div class="col-md-6 col-md-offset-3" id="login">  
+        <%= form_for(@customerreview, url: customer_reviews_path, :action => "create") do |f| %>
          
            <%= f.hidden_field :customer_id, :value => @customer %>
-
-          <div class="wrap-input100 validate-input" data-validate="Name is required">
-            <%= f.text_field :content, class:"input100"%>
-            <span class="focus-input100"></span>
+          <div class="form-group">
+            <%= f.label :content, class:"user" %>
+            <%= f.text_field :content, class:"form-control", id:"text1",  placeholder:"Title" %>
           </div>
-          
-
-          <div class="wrap-input100 validate-input" data-validate="Name is required">
-            <%= f.label :Description, class:"label-input100" %>
-            <%= f.text_area :description, class:"input100", cols: "40", rows: "15"%>
+          <div class="form-group">
+            <%= f.label :Description, class:"user" %>
+            <%= f.text_area :description, class:"form-control", cols: "40", rows: "5" ,  placeholder:"Description"%>
           </div>
-          
-
-          
-          <div class="con-login100-form-btn">
-            <div class="wrap-login100-form-btn">
-              <div class="login100-form-bgbtn"></div>
-              <button class="login100-form-btn">
-                <%= f.submit "Submit", class:"login-m1" %>
-              </button>
-            </div>
-          
-          
-            <% end %>
-          
-            <%# <%= link_to 'Back', :back %> 
-          
+          <div class="form-group">
+            <%= f.submit "Submit", class:"btn btn-success" %>
           </div>
-          
+        <% end %>
+        <br/>
+         <br/>
+        <div class="back">   
+          <%= link_to '<< Back', :back %>
         </div>
-      <div class="login100-more">
-        <%# <%= render "devise/shared/error_messages", resource: resource %>
       </div>
-    </div>
+    
+    </center>>
+  </div>
+</div>

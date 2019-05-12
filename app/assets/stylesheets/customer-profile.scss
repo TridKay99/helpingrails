@@ -69,7 +69,7 @@
   }
   .link2{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 30px;
   }.link3 a{
     border: none;
@@ -96,11 +96,24 @@
     cursor: pointer;
     text-align: center
   }
+  .link2 .btn-primary a{
+    font-weight: bold;
+    color: #383d41;
+  }
 
   .list-group-item-action1{background: -webkit-linear-gradient(left, #f3f7f2, #edf3efe8) }
   .review .list-group-item-action1 h6{
     border-bottom:1px solid #4ccc25;
     padding-bottom: 10px
+  }
+  .list-group-item-action .mb-1{
+    border-bottom:1px solid #4ccc25;
+    padding-bottom: 10px
+  }
+  .btn-group-sm{
+    display: flex;
+    justify-content:flex-end;
+
   }
   .modal-header{
     background: -webkit-linear-gradient(-250deg, #7e8b7c, #22f87b);
