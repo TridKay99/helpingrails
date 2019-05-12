@@ -65,7 +65,7 @@
                                             <h5 class="mb-2"><%= job.title%></h5>
                                             <small>Status:<%= (job.accepted == true ? "Accepted" : "Pending" )%></small>
                                           </div>
-                                          <%# <p class="mb-1">Description:<%= job.description</p> %>
+                                          
                                           
                                           <% if job.accepted == true %>
                                             <button type="button" class="btn btn-secondary"><%= link_to 'Pay Now', show_job_path(job) %></button>
@@ -77,7 +77,7 @@
                                               <button type="button" class="btn btn-secondary"><%= link_to "Edit", edit_job_path(job) %></button>
                                               <button type="button" class="btn btn-secondary"><%= link_to "Delete", show_job_path(job),  method: :delete,data: { confirm: 'Are you sure?' } %></button>
                       
-                                            </div>
+                                            </div>s
                                           <% end %>
                                         <%end%>
                                     <%end%>
