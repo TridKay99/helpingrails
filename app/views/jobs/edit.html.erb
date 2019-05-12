@@ -1,32 +1,69 @@
-<h1>Edit your job!</h1>
 
-<% if customer_signed_in? %>
-  <%= form_for @job, url: jobs_path, :html => { :multipart => true } do |f| %>
+<div class= "create-new-job">
+  <div class="container new-job" id="data-enter">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="contact-info">
+          <h2>Edit your job</h2>
+          
+        </div>
+      </div>
+      <div class="col-md-9">
 
-    <div class="form-group">
-      <%= f.label(:title, :class => 'col-sm-2 control-lable')%>
-      <div class="col-sm-10">
-        <%= f.text_field(:title, class: "form-control")%>
+      <% if customer_signed_in? %>
+      <%= form_for @job, url: jobs_path, :html => { :multipart => true } do |f| %>
+
+        <div class="contact-form">
+          <div class="form-group">
+            <%= f.label(:title, :class => 'control-label col-sm-2')%>
+            
+            <div class="col-sm-10">
+            <%= f.text_field(:title, class: "form-control",id:"fname", placeholder:"Title")%>          
+            
+            </div>
+          </div>
+          
+          
+          <div class="form-group">
+            <%= f.label(:description, :class => 'control-label col-sm-2')%>
+          
+            <div class="col-sm-10">
+            <%= f.text_area(:description, class:"form-control", rows:"5", id:"comment", placeholder:"Description")%>  
+            
+            </div>
+          </div>
+          <div class="contact-form">
+          <div class="form-group">
+            <%= f.label(:price, :class => 'control-label col-sm-2')%>
+            <div class="col-sm-10">
+              <%= f.text_field(:price, class: "form-control",id:"fname", placeholder:"Price")%>          
+            </div>
+          </div>
+          <div class="form-group">
+            
+            <div class="control-label col-sm-3">
+              <% if @job.uploaded_image.attached? %>
+              <%= image_tag @job.uploaded_image.variant(resize: "150x150").processed.service_url %>
+              
+              <% else %>
+              <p>You can add photo</p>
+              <% end %>         
+            </div>
+            <div class="col-sm-10">
+              <%= f.file_field(:uploaded_image, accept: 'image/jpg, image/png') %>  
+              
+            </div>
+          <br/>
+          <div class="form-group">
+              <%= f.submit "UPDATE", class:"btn btn-success" %>
+          </div>
+          <% end %>
+        <% end %>
+
+        <br/>
+        <%= link_to "<< Back", :back %>
+        </div>
       </div>
     </div>
-
-
-    <div class="form-group">
-      <%= f.label(:description, :class => 'col-sm-2 control-lable')%>
-      <div class="col-sm-10">
-        <%= f.text_field(:description, class: "form-control")%>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label(:price, :class => 'col-sm-2 control-lable')%>
-      <div class="col-sm-10">
-        <%= f.text_field(:price, class: "form-control")%>
-      </div>
-
-      <%= f.submit "UPDATE "%>
-
-    
-  <% end %>
-<% end %>
-<%= link_to "Back", :back %>
+  </div>
+</div>

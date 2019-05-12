@@ -10,7 +10,7 @@
            <div class="wrap-input100 validate-input" data-validate="Name is required">
               <div class= 'row'>
                   <% if @customer.avatar.attached? %>
-                    <%= image_tag @customer.avatar.service_url, class: "rounded-circle"%>
+                    <%= image_tag @customer.avatar.variant(resize: "100x100").processed.service_url, class: "rounded-circle"%>
                   <%else%>
                     <img src="<%= Customer.generate_random_images %>" class="rounded-circle", height="100" width="100">
                   <%end%>

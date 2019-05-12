@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :customer_reviews
   resources :worker_reviews
   resources :charges
-
+ 
 
   get '/', to:'home#index', as: 'home'
 
@@ -20,15 +20,15 @@ Rails.application.routes.draw do
   get '/jobs/:id', to: 'jobs#show', as: 'show_job'
 
   put '/jobs/:id', to: 'jobs#update'
-  patch '/jobs/:id', to: 'jobs#update'
+  patch '/jobs/:id', to: 'jobs#update', as: 'update_job'
   get '/jobs/:id/edit', to: 'jobs#edit', as: 'edit_job'
-  
+ 
   # no as: because it redirects to the show_job page?
   put 'jobs/:id', to: 'jobs#accept'
   post 'jobs/:id', to: 'jobs#accept'
   get '/jobs/:id', to: 'jobs#accept' 
 
-  delete '/jobs/:id', to: 'jobs#destroy'
+  # delete '/jobs/:id', to: 'jobs#destroy'
   
 
   get '/workers', to: 'worker#index', as: 'index_workers'

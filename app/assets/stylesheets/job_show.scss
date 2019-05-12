@@ -1,89 +1,184 @@
 
 
 
-.show_job_container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 900px;
-  width: 100%;
-  background-image: linear-gradient(-230deg, rgba(218, 211, 207, 0) 0%, rgba(0, 0, 0, 0.836)40%),url("8.jpeg");
-  background-size: 1920px 1080px;
-  background-repeat: repeat;
+// .show_job_container{
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 900px;
+//   width: 100%;
+//   background-image: linear-gradient(-230deg, rgba(218, 211, 207, 0) 0%, rgba(0, 0, 0, 0.836)40%),url("8.jpeg");
+//   background-size: 1920px 1080px;
+//   background-repeat: repeat;
 
 
 
-.job_title{
-  color: #0efa8cd0;
-}
-.job_bio{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 40%;
-  color: #dbdddb8e;
-}
+// .job_title{
+//   color: #0efa8cd0;
+// }
+// .job_bio{
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+//   width: 40%;
+//   color: #dbdddb8e;
+// }
 
-.job_description_title{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #0efa8cd0;
-}
+// .job_description_title{
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   color: #0efa8cd0;
+// }
 
-.job_description{
-  display:flex;
-  align-items: flex-start;
-  border: 3px solid #0efa8cd0;
-  width: 100%;
-  height: 100%;
-  padding: 10px 5px;
-  text-align: center;
-  overflow: scroll;
-  background: rgb(49, 49, 49)
-}
+// .job_description{
+//   display:flex;
+//   align-items: flex-start;
+//   border: 3px solid #0efa8cd0;
+//   width: 100%;
+//   height: 100%;
+//   padding: 10px 5px;
+//   text-align: center;
+//   overflow: scroll;
+//   background: rgb(49, 49, 49)
+// }
 
-.job_owner_title {
-  color: #0efa8cd0;
-}
+// .job_owner_title {
+//   color: #0efa8cd0;
+// }
 
-.job_owner {
-  display:flex;
-  align-items: flex-start;
-  border: 3px solid #0efa8cd0;
-  width: 40%;
-  height: 10%;
-  padding: 10px 5px;
-  padding-left: 60px;
-  text-align: center;
-  background: rgb(49, 49, 49)
-}
+// .job_owner {
+//   display:flex;
+//   align-items: flex-start;
+//   border: 3px solid #0efa8cd0;
+//   width: 40%;
+//   height: 10%;
+//   padding: 10px 5px;
+//   padding-left: 60px;
+//   text-align: center;
+//   background: rgb(49, 49, 49)
+// }
 
-.price_area_title {
-  color: #0efa8cd0;
-}
+// .price_area_title {
+//   color: #0efa8cd0;
+// }
 
-.job_price {
+// .job_price {
 
-}
+// }
 
-.job_accepted_status {
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 3px solid #0efa8cd0;
-  width: 30%;
-  height: 40%;
-  padding: 10px 5px;
-  text-align: center;
-  background: rgb(49, 49, 49);
-  margin-bottom: 20px;
-  margin-top: 30px
-}
+// .job_accepted_status {
+//   display:flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   border: 3px solid #0efa8cd0;
+//   width: 30%;
+//   height: 40%;
+//   padding: 10px 5px;
+//   text-align: center;
+//   background: rgb(49, 49, 49);
+//   margin-bottom: 20px;
+//   margin-top: 30px
+// }
 
 
-.job_image {
-}
+// .job_image {
+// }
 
+// }
+.job-show-page{
+  background:linear-gradient(-230deg, rgba(15, 15, 15, 0.575) 0%, rgba(27, 29, 27, 0.808)80%),url(https://wallpapertag.com/wallpaper/full/c/a/a/157415-simplistic-wallpapers-1920x1080-lockscreen.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 100vh;
+  // display:flex;
+  // justify-content: center;
+  // align-items: center;
+
+  
+  .job-show-page h1,h4,h2,p{
+    // font-size: 10px;
+    // font-family: arabic typesetting;
+    
+    color:white;
+    padding:0 50px 0 0;
+
+    
+    
+    }
+   .put-in{
+    background-color:rgba(13,13,13,0.2);
+    min-height:300px;
+    padding: 20px 25px 25px 25px;
+    box-shadow: -10px -10px 9px #33cc33;
+    // min-width: 800px;
+    }
+
+    
+    .left-right{
+      display:flex;
+      flex-direction: row
+     
+    }
+    .left-entry{
+      
+      // width:50%;
+      // padding:30px;
+      // margin:0 10px;
+    }
+
+
+    .job_owner{
+      padding: 0 35px;
+
+    }
+    .job_owner a{ 
+      color:white;
+    }
+    .left-entry p{
+      padding: 0 0 0 35px;
+    }
+
+    .right-entry{
+      
+      display:flex;
+      flex-direction: column;
+      justify-content: center
+      // width:50%;
+    //   padding:30px;
+    //   margin:0 10px;
+    }
+    .job_accepted_status a, .price h1{
+      color:white;
+    }
+    .price h2,h1{
+      text-align: end;
+      padding:0 50px 0 0;
+    }
+
+    
+    
+    .back a{
+      color:white;
+      float:left;
+    }
+    .leave-review, .accept-job{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .leave-review a, .accept-job a{
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1% 5%;
+      width: 70%;
+      background: -webkit-linear-gradient(-250deg, #4d614b, #22f87b);
+      font-weight: bold;
+      color: #383d41;
+  
+      margin-bottom: 1%;
+      cursor: pointer;
+      text-align: center
+    }
 }

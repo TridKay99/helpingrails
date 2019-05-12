@@ -36,6 +36,13 @@ class WorkersController < ApplicationController
     end
   end
 
+  def destroy
+    @worker = Worker.find(params[:id])
+    @worker.destroy
+    flash[:notice] = "worker '#{@worker.username}' deleted successfully."
+    redirect_to root_path
+  end
+
   private
     def worker_params
       params.permit(:email, :username, :firstname, :lastname, :description, :experience)
