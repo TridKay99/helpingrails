@@ -46,9 +46,9 @@ puts 'Creating a worker user'
     lastname:  Faker::Name.last_name, username:  Faker::Name.first_name , password: '123456', 
     email: Faker::Internet.email, experience: Faker::Construction.trade
   })
-  # 3.times do
-  #   worker.worker_reviews.create({content: Faker::Artist.name, description: Faker::Restaurant.review}) 
-  # end
+  3.times do
+    worker.worker_reviews.create({content: Faker::Artist.name, description: Faker::Restaurant.review}) 
+  end
 end
 puts "worker user done"
 

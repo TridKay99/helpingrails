@@ -73,7 +73,7 @@
   <div class="container">
   <br/>
   
-   <%# <center>  %>
+  
     
       <div class="put-in" >
         
@@ -101,12 +101,11 @@
               <p>No image for this job</p>
             <% end %>
           </div>
+            <% if worker_signed_in? && @job.accepted %>
               <div class= "leave-review">
-                <% if @job.accepted %>
                   <%= link_to 'Leave review for job poster', customer_path(@job.customer) %>
-                <%end%>
               </div>
-        
+            <%end%>
         </div> 
         <div class= "col-md-6 right-entry" id="login">
           <div class="price">
@@ -130,9 +129,11 @@
               <%else%>
                   <img src="<%= Worker.generate_random_images %>" class="rounded-circle", height="100" width="100">
               <%end%>
+              <% if customer_signed_in?%>
                 <div class= "leave-review">
                   <%= link_to 'Leave review for job worker', worker_path(@job.worker) %>
                 </div>
+              <%end%>
             <% else %>
               <p>Job not accepted</p>
             <% end %><br/>
@@ -151,6 +152,6 @@
           </div>
        
       
-    <%# </center>> %>
+    
   </div>
 </div>
