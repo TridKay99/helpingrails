@@ -32,7 +32,7 @@
               <p>No image for this job</p>
             <% end %>
           </div>
-            <% if worker_signed_in? && @job.accepted %>
+            <% if worker_signed_in? %>
               <div class= "leave-review">
                   <%= link_to 'Leave review for job poster', customer_path(@job.customer) %>
               </div>
@@ -68,12 +68,12 @@
             <% else %>
               <p>Job not accepted</p>
             <% end %><br/>
-            <div class= "accept-job">
-            <% if worker_signed_in? && !@job.accepted %>
-              <%= link_to 'Accept job', show_job_path(@job, worker: current_worker.id),  method: :accept %>
+            <% if worker_signed_in?%>
+              <div class= "accept-job">
               
+                <%= link_to 'Accept job', show_job_path(@job, worker: current_worker.id),  method: :accept %>
+              </div>
             <% end %>
-            </div>
           </div>  
         </div>
 
