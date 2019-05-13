@@ -1,5 +1,8 @@
 # README
 
+link to git hub repo : https://github.com/TridKay99/helpingrails
+URL link : https://damp-forest-41444.herokuapp.com/
+
 1. What is the need (i.e. challenge) that you will be addressing in your project?
 The main challenege throughout our project was creating two user groups using Devise. Not creating these two user groups initially through Devise resulted in a restart of our project. Customer will be finding a Worker to get their necessary 'job' done.
 
